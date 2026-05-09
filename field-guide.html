@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Actually Happening to Your Skin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Newsreader:opsz,wght@6..72,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2eb;
+    --paper: #fdfaf3;
+    --ink: #1f1c18;
+    --ink-soft: #4a4540;
+    --rule: #d9d2c4;
+    --accent: #6b2b1f;
+    --accent-soft: #8a3f30;
+    --measure: 38rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+    font-weight: 380;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.5rem;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.25rem;
+    color: var(--ink);
+  }
+
+  .dek {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 32rem;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 60, "SOFT" 30;
+    font-size: 1.6rem;
+    font-weight: 450;
+    line-height: 1.2;
+    margin: 4rem 0 1.5rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 24, "SOFT" 20;
+    font-size: 1.18rem;
+    font-weight: 550;
+    line-height: 1.3;
+    margin: 2.5rem 0 0.75rem;
+    color: var(--ink);
+  }
+
+  h3 .num {
+    color: var(--accent);
+    font-variation-settings: "opsz" 24, "SOFT" 20;
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+
+  p { margin: 0 0 1.15rem; }
+
+  p + h3 { margin-top: 2.75rem; }
+
+  em { font-style: italic; }
+  strong { font-weight: 600; color: var(--ink); }
+
+  .lead {
+    font-size: 1.18rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .lead::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+    font-size: 4.2rem;
+    float: left;
+    line-height: 0.85;
+    margin: 0.25rem 0.6rem -0.1rem 0;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .group-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin: 4.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .group-label + h2 { margin-top: 0.75rem; }
+
+  ul {
+    margin: 0 0 1.15rem;
+    padding-left: 1.25rem;
+    list-style: none;
+  }
+
+  ul li {
+    position: relative;
+    margin-bottom: 0.6rem;
+    padding-left: 0.5rem;
+  }
+
+  ul li::before {
+    content: "—";
+    position: absolute;
+    left: -1.1rem;
+    color: var(--accent);
+  }
+
+  .what-doesnt {
+    background: var(--paper);
+    border-left: 2px solid var(--accent-soft);
+    padding: 1rem 1.25rem 0.5rem;
+    margin: 1.25rem 0 1.5rem;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+  }
+
+  .what-doesnt strong {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .synthesis {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .routine {
+    margin: 1.5rem 0;
+  }
+
+  .routine h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 550;
+    letter-spacing: 0.02em;
+    margin: 1.5rem 0 0.4rem;
+    color: var(--ink);
+  }
+
+  .routine h4 .mech {
+    color: var(--ink-soft);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+
+  .source-note {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .source-note h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .verify {
+    margin-top: 2.5rem;
+    padding: 1rem 1.25rem;
+    background: #efe7d4;
+    border-radius: 2px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .verify strong {
+    font-style: normal;
+    color: var(--accent);
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 2.5rem 1.25rem 4rem; }
+    body { font-size: 18px; }
+    .lead::first-letter { font-size: 3.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <p class="eyebrow">The Field Guide · No. 1</p>
+  <h1>What's actually happening to your skin</h1>
+  <p class="dek">A working map of the nine mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.</p>
+</header>
+
+<main>
+
+<p class="lead">Most skincare writing tells you what to buy. This tells you what's happening underneath, so you can decide for yourself. The framework here comes from a 2023 review in <em>Aging and Disease</em>, "Hallmarks of Skin Aging," which adapts the foundational 2013 paper by López-Otín and colleagues, "The Hallmarks of Aging," from <em>Cell</em>. Together they organize everything that happens to a face over decades into nine specific mechanisms.</p>
+
+<p>A face does not age in nine equal ways. Two of the nine do most of the visible work. Three more matter clearly. Four are real, but for a person standing at a Sephora counter in 2026, mostly out of reach. Sorting them honestly is most of the value of this map. The other 90% of skincare writing — and most of what you can buy — sits somewhere in the gap between mechanisms that matter and mechanisms that products can credibly address.</p>
+
+<p class="group-label">The Two That Matter Most</p>
+<h2>What does most of the work, visibly</h2>
+
+<h3><span class="num">1.</span> Sun damage to DNA</h3>
+
+<p><em>Genomic instability,</em> in the paper. Ultraviolet light — mostly UVA, which passes through windows and reaches you on overcast days — breaks DNA in skin cells. Most breaks are repaired automatically. The unrepaired ones drive almost everything you don't like in a mirror later: collagen breakdown, uneven pigment, loss of elasticity, and skin cancer. In the dermatological consensus, roughly 80% of facial aging in fair skin is photoaging. Not time. Sun.</p>
+
+<p>What actually intervenes:</p>
+<ul>
+  <li>Daily broad-spectrum SPF, applied generously, reapplied if you're outside. The single highest-leverage thing a person can do for their face. In a 4.5-year Australian trial, the daily-use group showed roughly a quarter less visible photoaging than the as-needed group — and that's before counting the cancers nobody mentions in beauty writing.</li>
+  <li>Topical antioxidants in the morning — vitamin C as L-ascorbic acid, paired with vitamin E and ferulic acid — neutralize some of the reactive damage UV initiates. A partner to sunscreen, not a substitute.</li>
+  <li>Topical retinoids at night (tretinoin, adapalene) inhibit the enzymes that break down collagen after UV exposure, and stimulate new collagen synthesis. Five decades of trials.</li>
+</ul>
+
+<div class="what-doesnt">
+  <strong>What doesn't, despite the marketing</strong>
+  <p>"DNA repair" creams, where the active molecules don't penetrate to where they'd need to act in any meaningful concentration. The entire "blue light protection" category absent UV protection. Anything labeled "anti-aging" without a stated mechanism — that's vocabulary, not chemistry.</p>
+</div>
+
+<h3><span class="num">2.</span> Cells that won't die</h3>
+
+<p><em>Cellular senescence,</em> in the paper. The biggest mechanism in modern aging research. As skin cells take damage — from UV, from oxidative stress, from time — some stop dividing. They don't die. They sit there secreting a cocktail of inflammatory signals, called the senescence-associated secretory phenotype, that damage neighboring cells and accelerate every other mechanism on this list. This is why aging compounds, and why a face begins to change visibly faster after about forty.</p>
+
+<p>What actually intervenes:</p>
+<ul>
+  <li>Sun protection, again. UV is the major upstream cause of senescence in skin.</li>
+  <li>Retinoids, which appear to have some senolytic-adjacent effects in skin, though the evidence is still developing.</li>
+  <li>Lifestyle that lowers systemic inflammation: sleep, exercise, alcohol moderation, smoking cessation. These reach senescent cell burden indirectly but reach it.</li>
+</ul>
+
+<div class="what-doesnt">
+  <strong>What's coming, but isn't here yet</strong>
+  <p>True senolytics — drugs that selectively kill senescent cells — are an active frontier of aging research and may eventually reach dermatology. They are not in any product on a shelf, regardless of marketing claims. Anything currently selling itself as a "cellular reset" or "rejuvenation" is borrowing the vocabulary of the science without delivering its mechanism.</p>
+</div>
+
+<p class="group-label">The Three That Matter Clearly</p>
+<h2>Real, visible, and partly within reach</h2>
+
+<h3><span class="num">3.</span> Sugar damage to collagen</h3>
+
+<p>Grouped under <em>loss of proteostasis</em> in the paper. Sugar molecules in your blood bind to long-lived proteins like dermal collagen and form advanced glycation end-products, or AGEs. These cross-link collagen fibers, making them stiff, brittle, and yellow. The result, over decades: a sallower, less elastic, less responsive skin texture that no topical reverses.</p>
+
+<p>This is irreversible at the molecular level. You can't un-glycate collagen — only replace it, which the body does more slowly with each decade. People with poorly controlled diabetes show visibly accelerated skin aging precisely because they have higher glycation rates.</p>
+
+<p>What intervenes: a lower-glycemic diet, less sugar, less refined carbohydrate. Decade horizon. Boring. Free.</p>
+
+<div class="what-doesnt">
+  <strong>What doesn't</strong>
+  <p>"Anti-glycation" creams. No topical has been shown to reverse existing AGE crosslinks in living dermal collagen. A few ingredients (carnosine, alpha-lipoic acid) have <em>in vitro</em> data on glycation precursors. None of this translates to a product you can apply tonight to undo what twenty years of soda did.</p>
+</div>
+
+<h3><span class="num">4.</span> Inflammaging</h3>
+
+<p>Chronic, low-grade inflammation throughout the body. The paper places this in the antagonistic-responses bucket — defenses that have stopped working properly. Senescent cells contribute, but so do sleep deprivation, chronic stress, alcohol, smoking, gut dysfunction, and visceral fat. The same enzymes UV activates are activated by general inflammation, accelerating collagen breakdown from the inside.</p>
+
+<p>What intervenes: sleep, exercise, alcohol moderation, smoking cessation. Smoking cessation in particular is the single most cost-effective skin intervention available — measurable improvement in tone within months. Topical niacinamide and azelaic acid have modest local anti-inflammatory effects and are cheap.</p>
+
+<div class="what-doesnt">
+  <strong>What doesn't, mostly</strong>
+  <p>"Calming," "soothing," and "balancing" product lines, generally built around plant extracts with weak clinical evidence. The category isn't fake — sensitive skin is real — but most of the products treat the local symptom, not the systemic inflammation actually driving most of the visible damage.</p>
+</div>
+
+<h3><span class="num">5.</span> Structural and scaffolding loss</h3>
+
+<p>Not strictly one of the nine cellular hallmarks, but it is what most people are reacting to when they say their face has changed. The skull resorbs over decades. Fat pads atrophy and migrate downward. Expression muscles hypertrophy. Ligaments laxen. The face deflates and slides; the skin sitting on top of it follows.</p>
+
+<p>No topical addresses this. Nothing you put on your skin replaces lost bone or fat. This is the mechanism that procedures exist to address, and the one that explains why, past a certain age, topicals alone produce diminishing visible returns regardless of how good they are.</p>
+
+<p>What intervenes:</p>
+<ul>
+  <li>Hyaluronic acid filler — mechanical volume replacement. Real, well-evidenced short-term, with underdiscussed risks: vascular events, migration, and recent imaging studies suggesting filler may persist longer than manufacturers claim.</li>
+  <li>Sculptra and similar biostimulators — induce the body to lay down new collagen, slowly, over months. A different mechanism from filler.</li>
+  <li>Botulinum toxin — prevents the repeated muscle folding that etches dynamic wrinkles into static lines. Clean mechanism, strongest evidence base in cosmetic dermatology.</li>
+  <li>Surgery, when the structural change is severe enough that no injectable can keep up.</li>
+</ul>
+
+<div class="what-doesnt">
+  <strong>What doesn't</strong>
+  <p>Every cream marketed as "lifting." Topicals do not lift faces. They can improve the quality of the skin sitting on top of a structure, but they cannot reshape the structure underneath. This is also the mechanism behind most "instant lift" claims, which are temporary tightening from film-formers, not lifting in any anatomical sense.</p>
+</div>
+
+<p class="group-label">The Four You Can't Really Touch</p>
+<h2>Real science, no consumer interventions yet</h2>
+
+<p>The remaining four mechanisms in the framework are well-validated in the laboratory and have essentially no current consumer-side intervention. The vocabulary from this part of the science has been borrowed especially heavily by luxury skincare marketing because it sounds impressive and is hard to falsify. If a product claims to address any of the following four, the claim is almost certainly running ahead of the evidence.</p>
+
+<h3><span class="num">6.</span> Telomere attrition</h3>
+<p>Chromosome ends shorten with each cell division. Past a threshold, cells stop dividing. Heritable, mostly determined by genetics and overall systemic health. No topical or cosmetic procedure addresses telomere length.</p>
+
+<h3><span class="num">7.</span> Epigenetic alterations</h3>
+<p>The chemical marks that tell each cell what kind of cell to be drift over time. Skin cells, in effect, "forget" what they're supposed to do. One of the hottest areas in aging research; cellular reprogramming therapies are years from clinical use and longer still from your bathroom shelf.</p>
+
+<h3><span class="num">8.</span> Stem cell exhaustion</h3>
+<p>The pool of basal-layer stem cells that replenish skin gradually depletes. Wound healing slows. Skin thins. There is no cream that meaningfully restores this pool, regardless of "stem cell" labeling. Plant stem cell extracts, despite popular marketing, do not transmit any cell-renewal signal to human skin.</p>
+
+<h3><span class="num">9.</span> Deregulated nutrient sensing</h3>
+<p>The mTOR, insulin, and AMPK pathways stop responding properly. This is what caloric restriction and rapamycin research are about. Real, but at the systemic level, and not a skincare problem in any direct sense.</p>
+
+<section class="synthesis">
+<h2>What this means for what you actually do</h2>
+
+<p>Once you understand the map, the entire skincare aisle simplifies. Most products and procedures aim at mechanisms 1, 2, 3, 4, or 5, often without saying which. The honest version of a daily routine, ranked by mechanism and impact:</p>
+
+<div class="routine">
+  <h4>The non-negotiables <span class="mech">— mechanisms 1, 2, partly 4</span></h4>
+  <ul>
+    <li>Sunscreen every morning, generously applied, reapplied if outside for hours.</li>
+    <li>A topical retinoid at night, used consistently over years.</li>
+  </ul>
+
+  <h4>The high-leverage adds <span class="mech">— mechanisms 1, 2, 4</span></h4>
+  <ul>
+    <li>Vitamin C with vitamin E and ferulic acid in the morning, especially if sun damage is your concern.</li>
+    <li>A simple barrier-supporting moisturizer (ceramides plus niacinamide). Doesn't itself reverse aging — stops you sabotaging the rest.</li>
+  </ul>
+
+  <h4>Targeted, only if you have the matching concern <span class="mech">— various</span></h4>
+  <ul>
+    <li>Tranexamic acid or cysteamine for stubborn pigmentation.</li>
+    <li>Azelaic acid for redness, melasma, or mild acne.</li>
+    <li>Benzoyl peroxide and prescription retinoids for active acne.</li>
+  </ul>
+
+  <h4>The lifestyle layer <span class="mech">— mechanisms 2, 3, 4</span></h4>
+  <ul>
+    <li>Don't smoke.</li>
+    <li>Sleep enough.</li>
+    <li>Limit alcohol.</li>
+    <li>Watch your sugar load over decades.</li>
+  </ul>
+
+  <h4>The procedure layer <span class="mech">— mechanisms 5, 2</span></h4>
+  <ul>
+    <li>Botox for dynamic wrinkles, when they begin to set.</li>
+    <li>Filler for volume loss, with eyes open about the tradeoffs.</li>
+    <li>Microneedling and energy-based devices for collagen induction — modest effect sizes, variable evidence by device.</li>
+  </ul>
+</div>
+
+<p>The everything else — the $300 cream, the LED mask of the moment, the ten-step routine, the exosome serum, the ingredient that wasn't there last year — is either marketed against a mechanism it doesn't reach, or doing something the items above already do for less.</p>
+
+<p>That's the map. The rest of this site is the work of testing specific products and procedures against it.</p>
+
+</section>
+
+<aside class="source-note">
+<h2>Source note</h2>
+<p>The framework here is adapted from two papers. López-Otín, Blasco, Partridge, Serrano, and Kroemer, "The Hallmarks of Aging," <em>Cell</em>, 2013 — the foundational document for the entire field of aging biology. And the more recent skin-specific synthesis published in <em>Aging and Disease</em> in 2023 under the title "Hallmarks of Skin Aging." Both are openly available through PubMed Central.</p>
+
+<p>Additional clinical claims drawn from: Hughes et al., 2013, on daily sunscreen use and visible photoaging (the Nambour trial); Flament et al., 2013, on the contribution of UV exposure to facial aging; and Humphrey et al., 2023, on imaging studies of long-persistent hyaluronic acid filler.</p>
+
+<div class="verify">
+  <strong>Working draft</strong>
+  <p>Specific paper citations and effect-size figures need verification before this goes live. The framework is correctly attributed; some of the supporting claims are working from secondary sources and should be checked against the originals.</p>
+</div>
+
+</aside>
+
+</main>
+
+</div>
+</body>
+</html>
