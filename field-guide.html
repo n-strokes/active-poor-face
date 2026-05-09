@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What's Actually Happening to Your Skin — The Field Guide No. 1</title>
-<meta name="description" content="A working map of the nine mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.">
+<meta name="description" content="A working map of the nine cellular mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -30,7 +30,11 @@
     --rule: #e2e2e6;
     --card: #ffffff;
     --accent: #2c3e6c;
+    --accent-soft: #5e6e94;
+    --accent-tint: #eef1f7;
+    --warn: #8a4a3c;
     --measure: 38rem;
+    --wide: 52rem;
   }
 
   * { box-sizing: border-box; }
@@ -49,10 +53,18 @@
   }
 
   .page {
-    max-width: var(--measure);
+    max-width: var(--wide);
     margin: 0 auto;
     padding: 4rem 1.5rem 6rem;
   }
+
+  .prose {
+    max-width: var(--measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Header */
 
   header {
     border-bottom: 1px solid var(--rule);
@@ -82,10 +94,25 @@
     font-size: 1.1rem;
     line-height: 1.55;
     color: var(--soft);
-    margin: 0;
+    margin: 0 0 1.5rem;
     max-width: 32rem;
     font-weight: 400;
   }
+
+  .byline {
+    margin: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  .byline time { color: var(--accent); }
+
+  .byline-sep { color: var(--rule); margin: 0 0.5rem; }
+
+  /* Body */
 
   h2 {
     font-size: 1.45rem;
@@ -100,9 +127,10 @@
     font-size: 1.1rem;
     font-weight: 700;
     line-height: 1.3;
-    margin: 2.5rem 0 0.75rem;
+    margin: 2.75rem 0 0.75rem;
     color: var(--ink);
     letter-spacing: -0.005em;
+    scroll-margin-top: 1rem;
   }
 
   h3 .num {
@@ -112,8 +140,6 @@
   }
 
   p { margin: 0 0 1.15rem; }
-
-  p + h3 { margin-top: 2.75rem; }
 
   em { font-style: italic; }
   strong { font-weight: 700; color: var(--ink); }
@@ -127,24 +153,12 @@
   a:hover { text-decoration-thickness: 2px; }
 
   .lead {
-    font-size: 1.08rem;
-    line-height: 1.6;
+    font-size: 1.18rem;
+    line-height: 1.55;
     color: var(--ink);
     margin-bottom: 1.5rem;
+    font-weight: 500;
   }
-
-  .group-label {
-    font-size: 0.74rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin: 4.5rem 0 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-  }
-
-  .group-label + h2 { margin-top: 0.75rem; }
 
   ul {
     margin: 0 0 1.15rem;
@@ -165,6 +179,205 @@
     color: var(--accent);
   }
 
+  /* Tier dividers */
+
+  .group-label {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .group-label .tier-mark {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    margin-right: 0.55rem;
+    vertical-align: 0.04em;
+  }
+
+  .group-label .tier-mark-1 { background: var(--accent); }
+  .group-label .tier-mark-2 { background: var(--accent); opacity: 0.55; }
+  .group-label .tier-mark-3 { background: var(--soft); opacity: 0.5; }
+  .group-label .tier-mark-adj {
+    background: transparent;
+    border: 1px solid var(--accent);
+    width: 0.55rem;
+    height: 0.55rem;
+  }
+
+  .group-label + h2 { margin-top: 0.75rem; }
+
+  /* The interactive key */
+
+  .key {
+    margin: 2.75rem 0 4rem;
+  }
+
+  .key-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .key-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .key-help {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0 0 1.75rem;
+    max-width: 36rem;
+  }
+
+  .key-help .legend {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-left: 0.4rem;
+  }
+
+  .key-help .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .key-help .dot {
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+  }
+
+  .key-help .dot-1 { background: var(--accent); }
+  .key-help .dot-2 { background: var(--accent); opacity: 0.55; }
+  .key-help .dot-3 { background: var(--soft); opacity: 0.5; }
+
+  .key-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .key-row {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .key-row[data-tier="1"] { grid-template-columns: repeat(2, 1fr); }
+  .key-row[data-tier="2"] { grid-template-columns: repeat(3, 1fr); }
+  .key-row[data-tier="3"] { grid-template-columns: repeat(4, 1fr); }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.05rem 1.05rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    min-height: 8rem;
+  }
+
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px -10px rgba(44, 62, 108, 0.4);
+    text-decoration: none;
+  }
+
+  .tile-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .tile-label {
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .tile-academic {
+    font-size: 0.78rem;
+    color: var(--soft);
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .tile-mirror {
+    font-size: 0.85rem;
+    color: var(--soft);
+    line-height: 1.4;
+    margin-top: auto;
+  }
+
+  /* Tier 1 — solid accent fill */
+  .tile-1 {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .tile-1 .tile-num { color: rgba(255, 255, 255, 0.7); }
+  .tile-1 .tile-label { color: #fff; }
+  .tile-1 .tile-academic { color: rgba(255, 255, 255, 0.75); }
+  .tile-1 .tile-mirror { color: rgba(255, 255, 255, 0.85); }
+  .tile-1:hover { box-shadow: 0 8px 22px -10px rgba(44, 62, 108, 0.6); }
+
+  /* Tier 2 — accent-tinted background */
+  .tile-2 {
+    background: var(--accent-tint);
+    border-color: #d8dfee;
+  }
+  .tile-2 .tile-num { color: var(--accent); }
+
+  /* Tier 3 — muted card */
+  .tile-3 {
+    background: var(--card);
+    border-color: var(--rule);
+  }
+  .tile-3 .tile-num { color: var(--soft); }
+  .tile-3 .tile-label { color: var(--soft); font-weight: 600; }
+  .tile-3 .tile-academic { color: var(--soft); opacity: 0.8; }
+  .tile-3 .tile-mirror { color: var(--soft); opacity: 0.85; }
+
+  @media (max-width: 720px) {
+    .key-row[data-tier="1"],
+    .key-row[data-tier="2"],
+    .key-row[data-tier="3"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tile { min-height: 7rem; padding: 0.85rem 0.9rem 0.95rem; }
+    .tile-label { font-size: 0.95rem; }
+    .tile-mirror { font-size: 0.78rem; }
+  }
+
+  @media (max-width: 420px) {
+    .key-row[data-tier="1"] { grid-template-columns: 1fr; }
+  }
+
+  /* "What doesn't" callout */
+
   .what-doesnt {
     background: var(--card);
     border-left: 2px solid var(--accent);
@@ -184,6 +397,62 @@
     display: block;
     margin-bottom: 0.4rem;
   }
+
+  /* "What RRF says" callout — the editorial scoring */
+
+  .rrf-says {
+    margin: 1.5rem 0 1.5rem;
+    padding: 0.95rem 1.25rem 1rem;
+    background: transparent;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .rrf-says-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    display: inline-block;
+    margin-right: 0.55rem;
+  }
+
+  .rrf-says-tag::before {
+    content: "—";
+    margin-right: 0.4rem;
+    color: var(--accent);
+  }
+
+  .rrf-says em {
+    font-style: italic;
+    color: var(--soft);
+  }
+
+  .rrf-says .verdict {
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 0.25rem;
+  }
+
+  .rrf-says .verdict.silent { color: var(--soft); }
+  .rrf-says .verdict.warn { color: var(--warn); }
+
+  /* Concrete-moment paragraph — the welded-to-the-world line */
+
+  .concrete {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 2px solid var(--soft);
+    padding: 0.1rem 0 0.1rem 1rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  /* Synthesis section */
 
   .synthesis {
     margin-top: 5rem;
@@ -206,6 +475,35 @@
     font-style: italic;
     font-size: 0.85rem;
   }
+
+  /* CTA */
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2rem 1.5rem;
+    background: var(--accent-tint);
+    border-radius: 3px;
+    text-align: left;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .cta p { margin: 0; color: var(--soft); }
+
+  /* Source note + bibliography + glossary */
 
   .source-note {
     margin-top: 5rem;
@@ -246,8 +544,105 @@
     margin-bottom: 0.3rem;
   }
 
+  .biblio {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.92rem;
+    color: var(--soft);
+  }
+
+  .biblio h2 {
+    font-size: 1.05rem;
+    margin: 0 0 1rem;
+    color: var(--soft);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .biblio ul { padding-left: 0; }
+  .biblio ul li { padding-left: 0; margin-bottom: 0.7rem; line-height: 1.5; }
+  .biblio ul li::before { content: ""; }
+
+  .glossary {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+
+  .glossary > summary {
+    cursor: pointer;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    list-style: none;
+    padding: 0.25rem 0;
+    user-select: none;
+  }
+
+  .glossary > summary::-webkit-details-marker { display: none; }
+
+  .glossary > summary::after {
+    content: "+";
+    margin-left: 0.5rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .glossary[open] > summary::after { content: "−"; }
+
+  .glossary dl {
+    margin: 1.25rem 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.65rem 1.25rem;
+    color: var(--soft);
+  }
+
+  .glossary dt {
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .glossary dd { margin: 0; line-height: 1.5; }
+
+  @media (max-width: 600px) {
+    .glossary dl {
+      grid-template-columns: 1fr;
+      gap: 0.15rem 0;
+    }
+    .glossary dd { margin-bottom: 0.7rem; }
+  }
+
+  /* Editorial footer */
+
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--soft);
+    text-align: left;
+  }
+
+  .colophon p { margin: 0 0 0.5rem; }
+
+  .colophon em { color: var(--ink); }
+
+  /* Mobile body padding */
+
   @media (max-width: 600px) {
     .page { padding: 2.5rem 1.25rem 4rem; }
+    .lead { font-size: 1.08rem; }
+    h2 { font-size: 1.3rem; margin-top: 3rem; }
+    .key-title { font-size: 1.35rem; }
+    .cta { padding: 1.5rem 1.25rem; }
   }
 </style>
 </head>
@@ -257,37 +652,143 @@
 <header>
   <p class="eyebrow">The Field Guide · No. 1</p>
   <h1>What's actually happening to your skin</h1>
-  <p class="dek">A working map of the nine mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.</p>
+  <p class="dek">A working map of the nine cellular mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.</p>
+  <p class="byline">
+    <!-- TODO: editorial signature / byline once resolved -->
+    Working draft <span class="byline-sep">·</span> Updated <time datetime="2026-05-09">May 9, 2026</time>
+  </p>
 </header>
 
 <main>
 
-<p class="lead">Most skincare writing tells you what to buy. This tells you what's happening underneath, so you can decide for yourself. The framework here comes from a 2023 review in <em>Aging and Disease</em>, "Hallmarks of Skin Aging," which adapts the foundational 2013 paper by López-Otín and colleagues, "The Hallmarks of Aging," from <em>Cell</em>. Together they organize everything that happens to a face over decades into nine specific mechanisms.</p>
+<div class="prose">
+<p class="lead">Most skincare writing tells you what to buy. This tells you what's happening underneath, so you can decide for yourself.</p>
 
-<p>A face does not age in nine equal ways. Two of the nine do most of the visible work. Three more matter clearly. Four are real, but for a person standing at a Sephora counter in 2026, mostly out of reach. Sorting them honestly is most of the value of this map. The other 90% of skincare writing — and most of what you can buy — sits somewhere in the gap between mechanisms that matter and mechanisms that products can credibly address.</p>
+<p>The framework here comes from a 2023 review in <em>Aging and Disease</em>, "Hallmarks of Skin Aging," which adapts the foundational 2013 paper by López-Otín and colleagues, <em>The Hallmarks of Aging</em>, in <em>Cell</em>. Together they organize everything that happens to a face over decades into nine specific cellular mechanisms. Both are open-access; see the bibliography below. <!-- TODO: verify and link DOIs --></p>
 
-<p class="group-label">The Two That Matter Most</p>
+<p>A face does not age in nine equal ways. <strong>Two of the nine do most of the visible work. Three more matter clearly. Four are real, but for a person standing at a Sephora counter in 2026, mostly out of reach.</strong> Sorting them honestly is most of the value of this map. Almost everything you can buy — and most of what you can read — sits somewhere in the gap between mechanisms that matter and mechanisms that products can credibly address.</p>
+
+<p>One thing the original nine miss: they are <em>cellular</em>-aging mechanisms. They don't directly cover what most people are reacting to in a mirror — pigmentation, structural change, hormonal shifts at perimenopause, the barrier, the small visible vessels in the cheeks. Those get their own section at the end, marked clearly as adjacent rather than inside the original framework.</p>
+</div>
+
+<!-- The marquee element: the interactive key -->
+
+<section class="key" aria-label="The map of nine mechanisms">
+  <p class="key-eyebrow">The map</p>
+  <h2 class="key-title">All nine, at a glance</h2>
+  <p class="key-help">
+    Color shows tier. Click any tile to read its section.
+    <span class="legend">
+      <span><span class="dot dot-1"></span> high leverage</span>
+      <span><span class="dot dot-2"></span> partly within reach</span>
+      <span><span class="dot dot-3"></span> out of reach</span>
+    </span>
+  </p>
+
+  <div class="key-grid">
+    <div class="key-row" data-tier="1">
+      <a class="tile tile-1" href="#m1">
+        <span class="tile-num">No. 1</span>
+        <span class="tile-label">Sun damage to DNA</span>
+        <span class="tile-academic">Genomic instability</span>
+        <span class="tile-mirror">Lines, mottled tone — roughly 80% of visible "aging."</span>
+      </a>
+      <a class="tile tile-1" href="#m2">
+        <span class="tile-num">No. 2</span>
+        <span class="tile-label">Cells that won't die</span>
+        <span class="tile-academic">Cellular senescence</span>
+        <span class="tile-mirror">Why aging accelerates after about forty.</span>
+      </a>
+    </div>
+
+    <div class="key-row" data-tier="2">
+      <a class="tile tile-2" href="#m3">
+        <span class="tile-num">No. 3</span>
+        <span class="tile-label">Sugar damage to collagen</span>
+        <span class="tile-academic">Loss of proteostasis · AGEs</span>
+        <span class="tile-mirror">Sallow, brittle, irreversible.</span>
+      </a>
+      <a class="tile tile-2" href="#m4">
+        <span class="tile-num">No. 4</span>
+        <span class="tile-label">Inflammaging</span>
+        <span class="tile-academic">Chronic inflammation</span>
+        <span class="tile-mirror">The slow background fire.</span>
+      </a>
+      <a class="tile tile-2" href="#m5">
+        <span class="tile-num">No. 5</span>
+        <span class="tile-label">Structural loss</span>
+        <span class="tile-academic">Bone, fat, ligament <em>(adjacent)</em></span>
+        <span class="tile-mirror">Deflation and sliding — the procedure layer.</span>
+      </a>
+    </div>
+
+    <div class="key-row" data-tier="3">
+      <a class="tile tile-3" href="#m6">
+        <span class="tile-num">No. 6</span>
+        <span class="tile-label">Telomere attrition</span>
+        <span class="tile-academic">Telomere attrition</span>
+        <span class="tile-mirror">Heritable. No topical reaches it.</span>
+      </a>
+      <a class="tile tile-3" href="#m7">
+        <span class="tile-num">No. 7</span>
+        <span class="tile-label">Cellular drift</span>
+        <span class="tile-academic">Epigenetic alterations</span>
+        <span class="tile-mirror">Cells forget their job.</span>
+      </a>
+      <a class="tile tile-3" href="#m8">
+        <span class="tile-num">No. 8</span>
+        <span class="tile-label">Stem cell exhaustion</span>
+        <span class="tile-academic">Stem cell exhaustion</span>
+        <span class="tile-mirror">Slow healing, thin skin.</span>
+      </a>
+      <a class="tile tile-3" href="#m9">
+        <span class="tile-num">No. 9</span>
+        <span class="tile-label">Nutrient signaling</span>
+        <span class="tile-academic">Deregulated nutrient sensing</span>
+        <span class="tile-mirror">Systemic. Not a skincare problem.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TIER 1 -->
+
+<div class="prose">
+
+<p class="group-label"><span class="tier-mark tier-mark-1"></span>Tier 1 — The Two That Matter Most</p>
 <h2>What does most of the work, visibly</h2>
 
+<article id="m1">
 <h3><span class="num">1.</span> Sun damage to DNA</h3>
 
-<p><em>Genomic instability,</em> in the paper. Ultraviolet light — mostly UVA, which passes through windows and reaches you on overcast days — breaks DNA in skin cells. Most breaks are repaired automatically. The unrepaired ones drive almost everything you don't like in a mirror later: collagen breakdown, uneven pigment, loss of elasticity, and skin cancer. In the dermatological consensus, roughly 80% of facial aging in fair skin is photoaging. Not time. Sun.</p>
+<p><em>Genomic instability,</em> in the paper. The mechanism, end to end, is short enough to keep in your head: ultraviolet light hits a skin cell. It breaks DNA directly (UVB) and floods the cell with reactive oxygen species (UVA, which passes through windows and reaches you on overcast days). The cell's stress sensors switch on a transcription factor called <strong>AP-1</strong>. AP-1 turns up the production of two enzymes — <strong>MMP-1</strong> (collagenase) and <strong>MMP-3</strong> — whose job is to chew up collagen. They do. The collagen scaffolding of your dermis fragments. Over years, that's lines, laxity, mottled tone, and skin cancer.</p>
+
+<p>That single chain — UV → DNA damage and ROS → AP-1 → MMP-1, MMP-3 → collagen fragmentation — is what makes "wear sunscreen" feel like physics instead of nagging. In the dermatological consensus, roughly 80% of facial aging in fair skin is photoaging. Not time. Sun.</p>
 
 <p>What actually intervenes:</p>
 <ul>
-  <li>Daily broad-spectrum SPF, applied generously, reapplied if you're outside. The single highest-leverage thing a person can do for their face. In a 4.5-year Australian trial, the daily-use group showed roughly a quarter less visible photoaging than the as-needed group — and that's before counting the cancers nobody mentions in beauty writing.</li>
+  <li>Daily broad-spectrum SPF, applied generously, reapplied if you're outside. The single highest-leverage thing a person can do for their face. In a 4.5-year Australian trial (Hughes et al., 2013, the Nambour study), the daily-use group showed roughly a quarter less visible photoaging than the as-needed group — and that's before counting the cancers nobody mentions in beauty writing.</li>
   <li>Topical antioxidants in the morning — vitamin C as L-ascorbic acid, paired with vitamin E and ferulic acid — neutralize some of the reactive damage UV initiates. A partner to sunscreen, not a substitute.</li>
-  <li>Topical retinoids at night (tretinoin, adapalene) inhibit the enzymes that break down collagen after UV exposure, and stimulate new collagen synthesis. Five decades of trials.</li>
+  <li>Topical retinoids at night (tretinoin, adapalene) inhibit the MMPs that break down collagen after UV exposure, and stimulate new collagen synthesis. Five decades of trials.</li>
 </ul>
+
+<p class="concrete">The reason that Korean tube of Isntree on your shelf has Tinosorb S and the American one at the Sephora counter doesn't is that the FDA hasn't approved a new sunscreen filter since 1996. American sunscreen lives a generation behind European, Korean, and Japanese sunscreen for entirely regulatory reasons. This is the kind of fact that should change how you shop, not a vague "you should wear SPF."</p>
+
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <span class="verdict">On UV: ✓.</span> Covers SPF rigorously and frequently — the closest the substack gets to consensus dermatology, and right to be there. The mechanism chain underneath the recommendation is the part still worth importing.
+</aside>
 
 <div class="what-doesnt">
   <strong>What doesn't, despite the marketing</strong>
-  <p>"DNA repair" creams, where the active molecules don't penetrate to where they'd need to act in any meaningful concentration. The entire "blue light protection" category absent UV protection. Anything labeled "anti-aging" without a stated mechanism — that's vocabulary, not chemistry.</p>
+  <p>"DNA repair" creams, where the active molecules don't penetrate to where they'd need to act in any meaningful concentration. The entire "blue light protection" category absent UV protection. Anything labeled "anti-aging" without a stated mechanism — that's vocabulary, not chemistry. La Roche-Posay's "ON switch" page is the standing example of cosmeceutical vocabulary-cosplay: a real biological term ("longevity switch") borrowed to dignify a moisturizer with no plausible mechanism for engaging it.</p>
 </div>
+</article>
 
+<article id="m2">
 <h3><span class="num">2.</span> Cells that won't die</h3>
 
-<p><em>Cellular senescence,</em> in the paper. The biggest mechanism in modern aging research. As skin cells take damage — from UV, from oxidative stress, from time — some stop dividing. They don't die. They sit there secreting a cocktail of inflammatory signals, called the senescence-associated secretory phenotype, that damage neighboring cells and accelerate every other mechanism on this list. This is why aging compounds, and why a face begins to change visibly faster after about forty.</p>
+<p><em>Cellular senescence,</em> in the paper. The biggest mechanism in modern aging research. As skin cells take damage — from UV, from oxidative stress, from time — some stop dividing. They don't die. They sit there secreting a cocktail of inflammatory signals called the <em>senescence-associated secretory phenotype</em>, or <strong>SASP</strong>, that damages neighboring cells and accelerates every other mechanism on this list. SASP is the reason aging compounds: a senescent cell isn't just a cell that quit working, it's a cell actively making things worse around it. It's also why a face begins to change visibly faster after about forty — the cells that quit decades ago are now loud.</p>
 
 <p>What actually intervenes:</p>
 <ul>
@@ -296,74 +797,202 @@
   <li>Lifestyle that lowers systemic inflammation: sleep, exercise, alcohol moderation, smoking cessation. These reach senescent cell burden indirectly but reach it.</li>
 </ul>
 
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <span class="verdict silent">On senescence: silent.</span> The SASP is the most powerful single concept in modern skin-aging science, and it's missing from the substack's vocabulary. This is the gap most worth closing — it's also the one your reader will most enjoy filling in, because the term flatters.
+</aside>
+
 <div class="what-doesnt">
   <strong>What's coming, but isn't here yet</strong>
   <p>True senolytics — drugs that selectively kill senescent cells — are an active frontier of aging research and may eventually reach dermatology. They are not in any product on a shelf, regardless of marketing claims. Anything currently selling itself as a "cellular reset" or "rejuvenation" is borrowing the vocabulary of the science without delivering its mechanism.</p>
 </div>
+</article>
 
-<p class="group-label">The Three That Matter Clearly</p>
+<!-- TIER 2 -->
+
+<p class="group-label"><span class="tier-mark tier-mark-2"></span>Tier 2 — The Three That Matter Clearly</p>
 <h2>Real, visible, and partly within reach</h2>
 
+<article id="m3">
 <h3><span class="num">3.</span> Sugar damage to collagen</h3>
 
-<p>Grouped under <em>loss of proteostasis</em> in the paper. Sugar molecules in your blood bind to long-lived proteins like dermal collagen and form advanced glycation end-products, or AGEs. These cross-link collagen fibers, making them stiff, brittle, and yellow. The result, over decades: a sallower, less elastic, less responsive skin texture that no topical reverses.</p>
+<p>Grouped under <em>loss of proteostasis</em> in the paper, but it deserves its own line because the mechanism is unusually clean and unusually neglected. Sugar molecules in your blood — glucose, fructose — bind to long-lived proteins like dermal collagen and form <strong>advanced glycation end-products</strong>, or AGEs. These cross-link collagen fibers, making them stiff, brittle, and yellow. The result, over decades: a sallower, less elastic, less responsive skin texture that no topical reverses.</p>
 
 <p>This is irreversible at the molecular level. You can't un-glycate collagen — only replace it, which the body does more slowly with each decade. People with poorly controlled diabetes show visibly accelerated skin aging precisely because they have higher glycation rates.</p>
 
 <p>What intervenes: a lower-glycemic diet, less sugar, less refined carbohydrate. Decade horizon. Boring. Free.</p>
 
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <span class="verdict silent">On glycation: nearly silent.</span> The "no red wine for collagen" line gestures at it, but the AGEs mechanism — the one your reader has already read about in longevity content — never gets named. This is a sellable insight virtually no skincare writer reaches for, and it's right at the intersection of skin and the metabolic-health vocabulary the audience already speaks.
+</aside>
+
 <div class="what-doesnt">
   <strong>What doesn't</strong>
   <p>"Anti-glycation" creams. No topical has been shown to reverse existing AGE crosslinks in living dermal collagen. A few ingredients (carnosine, alpha-lipoic acid) have <em>in vitro</em> data on glycation precursors. None of this translates to a product you can apply tonight to undo what twenty years of soda did.</p>
 </div>
+</article>
 
+<article id="m4">
 <h3><span class="num">4.</span> Inflammaging</h3>
 
-<p>Chronic, low-grade inflammation throughout the body. The paper places this in the antagonistic-responses bucket — defenses that have stopped working properly. Senescent cells contribute, but so do sleep deprivation, chronic stress, alcohol, smoking, gut dysfunction, and visceral fat. The same enzymes UV activates are activated by general inflammation, accelerating collagen breakdown from the inside.</p>
+<p>Chronic, low-grade inflammation throughout the body. The paper places this in the antagonistic-responses bucket — defenses that have stopped working properly. Senescent cells contribute, but so do sleep deprivation, chronic stress, alcohol, smoking, gut dysfunction, and visceral fat. The same MMPs UV activates are activated by general inflammation, so a tired, stressed face takes the same kind of collagen hit a sun-exposed face does — quieter, slower, but ongoing.</p>
 
 <p>What intervenes: sleep, exercise, alcohol moderation, smoking cessation. Smoking cessation in particular is the single most cost-effective skin intervention available — measurable improvement in tone within months. Topical niacinamide and azelaic acid have modest local anti-inflammatory effects and are cheap.</p>
+
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <em><!-- TODO: score RRF coverage of inflammaging — sleep / alcohol / niacinamide framing --></em>
+</aside>
 
 <div class="what-doesnt">
   <strong>What doesn't, mostly</strong>
   <p>"Calming," "soothing," and "balancing" product lines, generally built around plant extracts with weak clinical evidence. The category isn't fake — sensitive skin is real — but most of the products treat the local symptom, not the systemic inflammation actually driving most of the visible damage.</p>
 </div>
+</article>
 
-<h3><span class="num">5.</span> Structural and scaffolding loss</h3>
+<article id="m5">
+<h3><span class="num">5.</span> Structural and scaffolding loss <em>(adjacent)</em></h3>
 
-<p>Not strictly one of the nine cellular hallmarks, but it is what most people are reacting to when they say their face has changed. The skull resorbs over decades. Fat pads atrophy and migrate downward. Expression muscles hypertrophy. Ligaments laxen. The face deflates and slides; the skin sitting on top of it follows.</p>
+<p>Not strictly one of the nine cellular hallmarks — this lives in the bone, the fat pads, the ligaments, the muscles, not in the cells of the skin itself. But it is what most people are reacting to when they say their face has "changed." The skull resorbs over decades. Fat pads atrophy and migrate downward. Expression muscles hypertrophy. Ligaments laxen. The face deflates and slides; the skin sitting on top of it follows.</p>
 
 <p>No topical addresses this. Nothing you put on your skin replaces lost bone or fat. This is the mechanism that procedures exist to address, and the one that explains why, past a certain age, topicals alone produce diminishing visible returns regardless of how good they are.</p>
 
 <p>What intervenes:</p>
 <ul>
-  <li>Hyaluronic acid filler — mechanical volume replacement. Real, well-evidenced short-term, with underdiscussed risks: vascular events, migration, and recent imaging studies suggesting filler may persist longer than manufacturers claim.</li>
+  <li>Hyaluronic acid filler — mechanical volume replacement. Real, well-evidenced short-term, with underdiscussed risks: vascular events, migration, and recent imaging studies (Humphrey et al., 2023) suggesting filler may persist in tissue longer than manufacturers claim, sometimes years past its supposed dissolution.</li>
   <li>Sculptra and similar biostimulators — induce the body to lay down new collagen, slowly, over months. A different mechanism from filler.</li>
   <li>Botulinum toxin — prevents the repeated muscle folding that etches dynamic wrinkles into static lines. Clean mechanism, strongest evidence base in cosmetic dermatology.</li>
   <li>Surgery, when the structural change is severe enough that no injectable can keep up.</li>
 </ul>
 
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <span class="verdict warn">On structural intervention: ✓ but uncritical.</span> Filler in particular gets enthusiastic coverage and not enough on the imaging-study question of how long it actually stays in the face. The 2023 Humphrey paper deserves a sentence the substack hasn't given it.
+</aside>
+
 <div class="what-doesnt">
   <strong>What doesn't</strong>
   <p>Every cream marketed as "lifting." Topicals do not lift faces. They can improve the quality of the skin sitting on top of a structure, but they cannot reshape the structure underneath. This is also the mechanism behind most "instant lift" claims, which are temporary tightening from film-formers, not lifting in any anatomical sense.</p>
 </div>
+</article>
 
-<p class="group-label">The Four You Can't Really Touch</p>
+<!-- TIER 3 -->
+
+<p class="group-label"><span class="tier-mark tier-mark-3"></span>Tier 3 — The Four You Can't Really Touch</p>
 <h2>Real science, no consumer interventions yet</h2>
 
-<p>The remaining four mechanisms in the framework are well-validated in the laboratory and have essentially no current consumer-side intervention. The vocabulary from this part of the science has been borrowed especially heavily by luxury skincare marketing because it sounds impressive and is hard to falsify. If a product claims to address any of the following four, the claim is almost certainly running ahead of the evidence.</p>
+<p>The remaining four mechanisms in the framework are well-validated in the laboratory and have essentially no current consumer-side intervention. The vocabulary from this part of the science has been borrowed especially heavily by luxury skincare marketing, because it sounds impressive and is hard to falsify. If a product claims to address any of the following four, the claim is almost certainly running ahead of the evidence.</p>
 
+<article id="m6">
 <h3><span class="num">6.</span> Telomere attrition</h3>
 <p>Chromosome ends shorten with each cell division. Past a threshold, cells stop dividing. Heritable, mostly determined by genetics and overall systemic health. No topical or cosmetic procedure addresses telomere length.</p>
+</article>
 
-<h3><span class="num">7.</span> Epigenetic alterations</h3>
-<p>The chemical marks that tell each cell what kind of cell to be drift over time. Skin cells, in effect, "forget" what they're supposed to do. One of the hottest areas in aging research; cellular reprogramming therapies are years from clinical use and longer still from your bathroom shelf.</p>
+<article id="m7">
+<h3><span class="num">7.</span> Cellular drift</h3>
+<p><em>Epigenetic alterations,</em> in the paper. The chemical marks that tell each cell what kind of cell to be drift over time. Skin cells, in effect, "forget" what they're supposed to do. One of the hottest areas in aging research; cellular reprogramming therapies are years from clinical use and longer still from your bathroom shelf.</p>
+</article>
 
+<article id="m8">
 <h3><span class="num">8.</span> Stem cell exhaustion</h3>
 <p>The pool of basal-layer stem cells that replenish skin gradually depletes. Wound healing slows. Skin thins. There is no cream that meaningfully restores this pool, regardless of "stem cell" labeling. Plant stem cell extracts, despite popular marketing, do not transmit any cell-renewal signal to human skin.</p>
+</article>
 
+<article id="m9">
 <h3><span class="num">9.</span> Deregulated nutrient sensing</h3>
 <p>The mTOR, insulin, and AMPK pathways stop responding properly. This is what caloric restriction and rapamycin research are about. Real, but at the systemic level, and not a skincare problem in any direct sense.</p>
+</article>
 
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says · 6–9</span>
+  <em>The luxury vocabulary the substack occasionally repeats — "cellular renewal," "stem-cell-derived," "longevity-coded" — is borrowed almost entirely from this tier, where no product can credibly act. The single most useful editorial move available is to tag the borrowing every time it appears.</em>
+</aside>
+
+<!-- ADJACENT -->
+
+<p class="group-label"><span class="tier-mark tier-mark-adj"></span>Adjacent — Outside the original nine</p>
+<h2>What the framework misses, but you see in a mirror</h2>
+
+<p>The López-Otín nine are <em>cellular</em>-aging mechanisms. They don't directly cover several of the most visible things on a face. These belong on the map, marked clearly as adjacent rather than inside the original framework — and they're where some of the highest-leverage and lowest-cost interventions actually live.</p>
+
+<article id="adj-pigment">
+<h3>Pigmentation</h3>
+<p>The original nine treat pigment as a downstream consequence of UV damage. It is — but for a large share of the audience, particularly the deeper-skin-tone reader the substack explicitly addresses, pigment is the <em>primary</em> concern, not a side effect. The pathway has its own vocabulary: <strong>tyrosinase</strong> as the rate-limiting enzyme, melanocyte hyperactivity, melanosome transfer, dermal pigment that has dropped past the basement membrane and become very hard to remove. Hyperpigmentation, melasma, post-inflammatory hyperpigmentation (PIH), and lentigines are different conditions with different best-evidence interventions.</p>
+
+<p>What intervenes (with the matching condition):</p>
+<ul>
+  <li>SPF, always, because all four conditions are driven or worsened by UV.</li>
+  <li>Tranexamic acid — oral and topical — for melasma. Strong recent evidence, still under-used.</li>
+  <li>Cysteamine for stubborn melasma and PIH where hydroquinone has failed or isn't available.</li>
+  <li>Azelaic acid for melasma, PIH, and rosacea overlap. Cheap, well-tolerated, evidence-graded.</li>
+  <li>Hydroquinone, prescription, short courses only.</li>
+</ul>
+
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <em><!-- TODO: tranexamic acid / cysteamine / azelaic acid coverage on the substack — score honestly --></em>
+</aside>
+</article>
+
+<article id="adj-hormones">
+<h3>Hormonal aging</h3>
+<p>Absent from the López-Otín framework, but the most predictable and dramatic skin event in the average woman's life. Estrogen withdrawal at perimenopause accelerates collagen loss roughly 30% in the first five years post-menopause. Sebum production drops; the skin gets drier and less elastic on a fast timeline that has nothing to do with sun exposure or sleep.</p>
+
+<p>What intervenes:</p>
+<ul>
+  <li>Systemic HRT, when clinically indicated. A legitimate skincare conversation now in a way it wasn't ten years ago.</li>
+  <li>Topical estriol creams — legal in the EU, off-label and compounded in the US — with growing evidence for facial collagen.</li>
+  <li>The same Tier 1 stack (SPF, retinoid, vitamin C) does heavier lifting in this window because the skin's intrinsic repair capacity has dropped.</li>
+</ul>
+
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <em><!-- TODO: HRT / topical estriol coverage. The audience is in or approaching this window; this is one of the largest omissions if it isn't already covered. --></em>
+</aside>
+</article>
+
+<article id="adj-barrier">
+<h3>The barrier (and the microbiome)</h3>
+<p>The stratum corneum — the outermost dead-cell layer — is held together by a lipid mortar of ceramides, cholesterol, and free fatty acids. When that mortar thins, water leaves the skin (transepidermal water loss), irritants get in, the barrier gets reactive, and every active ingredient you apply works less well and stings more. This is not in the original nine, and it is where most of the cheap, evidence-based wins live.</p>
+
+<p>What intervenes:</p>
+<ul>
+  <li>A simple barrier-supporting moisturizer with ceramides and niacinamide. CeraVe and Vanicream do this for under $20.</li>
+  <li>Avoiding over-exfoliation, which is the most common self-inflicted barrier injury.</li>
+  <li>Petrolatum at night when the barrier is acutely impaired ("slugging"). Boring. Effective.</li>
+</ul>
+
+<p>The microbiome marketing claims are mostly downstream of this — barrier health and microbiome health track each other. You don't need to dignify the prebiotic-serum vocabulary to get the result; supporting the barrier carries the microbiome along.</p>
+
+<aside class="rrf-says">
+  <span class="rrf-says-tag">What RRF says</span>
+  <em><!-- TODO: barrier / CeraVe / slugging coverage. The price-per-active argument here is devastating — worth a piece of its own. --></em>
+</aside>
+</article>
+
+<article id="adj-vascular">
+<h3>Microvasculature</h3>
+<p>Capillary fragility, telangiectasias (visible broken vessels), the diffuse redness of late-stage rosacea, and post-inflammatory erythema after acne — these are vascular changes, not collagen ones, and they don't fit cleanly into any of the nine. They have their own intervention map: vascular lasers (KTP, pulsed-dye), niacinamide, azelaic acid, and the prescription rosacea ladder.</p>
+</article>
+
+<article id="adj-environment">
+<h3>The environmental layer: pollution, IRA, blue light</h3>
+<p>Three contributors to visible aging the original framework doesn't separate cleanly:</p>
+<ul>
+  <li><strong>PM2.5</strong> — fine particulate pollution — has been correlated with lentigines and wrinkles in epidemiological studies. The mechanism is partly oxidative, partly inflammatory. SkinCeuticals' urban-pollution serum line points at a real signal even when the product itself is marginal.</li>
+  <li><strong>Infrared (IRA)</strong> radiation penetrates deeper than UV and contributes to photoaging through different mechanisms. Iron oxides in tinted sunscreen address it; clear chemical sunscreens don't.</li>
+  <li><strong>Visible / high-energy blue light (HEV)</strong> contributes to pigmentation in deeper skin tones (melasma in particular). The brand "blue light protection from your phone" claims are commercially overstated, but the mechanism is real for sunlight, and iron oxides cover it.</li>
+</ul>
+
+<p>The practical move is simple: a tinted mineral sunscreen with iron oxides addresses UV, IRA, and HEV in a single product.</p>
+</article>
+
+</div>
+
+<!-- SYNTHESIS -->
+
+<div class="prose">
 <section class="synthesis">
 <h2>What this means for what you actually do</h2>
 
@@ -372,21 +1001,21 @@
 <div class="routine">
   <h4>The non-negotiables <span class="mech">— mechanisms 1, 2, partly 4</span></h4>
   <ul>
-    <li>Sunscreen every morning, generously applied, reapplied if outside for hours.</li>
+    <li>Sunscreen every morning, generously applied, reapplied if outside for hours. Tinted mineral if you also want IRA and HEV coverage.</li>
     <li>A topical retinoid at night, used consistently over years.</li>
   </ul>
 
-  <h4>The high-leverage adds <span class="mech">— mechanisms 1, 2, 4</span></h4>
+  <h4>The high-leverage adds <span class="mech">— mechanisms 1, 2, 4, barrier</span></h4>
   <ul>
     <li>Vitamin C with vitamin E and ferulic acid in the morning, especially if sun damage is your concern.</li>
     <li>A simple barrier-supporting moisturizer (ceramides plus niacinamide). Doesn't itself reverse aging — stops you sabotaging the rest.</li>
   </ul>
 
-  <h4>Targeted, only if you have the matching concern <span class="mech">— various</span></h4>
+  <h4>Targeted, only if you have the matching concern <span class="mech">— pigment, vascular, hormonal</span></h4>
   <ul>
-    <li>Tranexamic acid or cysteamine for stubborn pigmentation.</li>
-    <li>Azelaic acid for redness, melasma, or mild acne.</li>
+    <li>Tranexamic acid or cysteamine for stubborn pigmentation. Azelaic acid for redness, melasma, or mild acne overlap.</li>
     <li>Benzoyl peroxide and prescription retinoids for active acne.</li>
+    <li>Topical estriol or systemic HRT in the perimenopausal window — clinical conversation, not Sephora.</li>
   </ul>
 
   <h4>The lifestyle layer <span class="mech">— mechanisms 2, 3, 4</span></h4>
@@ -400,31 +1029,105 @@
   <h4>The procedure layer <span class="mech">— mechanisms 5, 2</span></h4>
   <ul>
     <li>Botox for dynamic wrinkles, when they begin to set.</li>
-    <li>Filler for volume loss, with eyes open about the tradeoffs.</li>
+    <li>Filler for volume loss, with eyes open about the tradeoffs and the imaging-study question.</li>
     <li>Microneedling and energy-based devices for collagen induction — modest effect sizes, variable evidence by device.</li>
+    <li>Vascular lasers for telangiectasias and persistent redness.</li>
   </ul>
 </div>
 
 <p>The everything else — the $300 cream, the LED mask of the moment, the ten-step routine, the exosome serum, the ingredient that wasn't there last year — is either marketed against a mechanism it doesn't reach, or doing something the items above already do for less.</p>
 
 <p>That's the map. The rest of this site is the work of testing specific products and procedures against it.</p>
-
 </section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <p class="cta-eyebrow">Next in The Field Guide</p>
+  <h3>No. 2 — The sunscreen counter, honestly</h3>
+  <p>Why the American sunscreen aisle lives a generation behind. Tinosorb, Uvinul, the FDA backlog, and the working list of filters worth flying for. <!-- TODO: link once written --></p>
+</section>
+</div>
+
+</main>
+
+<!-- SOURCE NOTE / BIBLIOGRAPHY / GLOSSARY / COLOPHON -->
+
+<div class="prose">
 
 <aside class="source-note">
 <h2>Source note</h2>
 <p>The framework here is adapted from two papers. López-Otín, Blasco, Partridge, Serrano, and Kroemer, "The Hallmarks of Aging," <em>Cell</em>, 2013 — the foundational document for the entire field of aging biology. And the more recent skin-specific synthesis published in <em>Aging and Disease</em> in 2023 under the title "Hallmarks of Skin Aging." Both are openly available through PubMed Central.</p>
 
-<p>Additional clinical claims drawn from: Hughes et al., 2013, on daily sunscreen use and visible photoaging (the Nambour trial); Flament et al., 2013, on the contribution of UV exposure to facial aging; and Humphrey et al., 2023, on imaging studies of long-persistent hyaluronic acid filler.</p>
+<p>Where this map departs from the original: it groups the nine into three tiers by what a consumer can credibly act on, demotes mechanism 5 (structural) to "adjacent" because it sits in bone and fat rather than skin cells, and adds a separate adjacent section for pigmentation, hormones, the barrier, microvasculature, and environmental factors that the original framework doesn't cleanly cover. The academic names and original three-bucket categorization (primary causes / antagonistic responses / integrative phenotypes) are preserved on the upcoming reference page. <!-- TODO: link reference page once written --></p>
 
 <div class="verify">
   <strong>Working draft</strong>
   <p>Specific paper citations and effect-size figures need verification before this goes live. The framework is correctly attributed; some of the supporting claims are working from secondary sources and should be checked against the originals.</p>
 </div>
-
 </aside>
 
-</main>
+<section class="biblio" aria-label="Bibliography">
+<h2>Bibliography</h2>
+<ul>
+  <li>López-Otín, C., Blasco, M.A., Partridge, L., Serrano, M., &amp; Kroemer, G. (2013). The Hallmarks of Aging. <em>Cell</em>, 153(6), 1194–1217. <!-- TODO: link verified DOI --></li>
+  <li>"Hallmarks of Skin Aging." <em>Aging and Disease</em>, 2023. <!-- TODO: verify exact title and authors; link DOI --></li>
+  <li>Hughes, M.C.B., Williams, G.M., Baker, P., &amp; Green, A.C. (2013). Sunscreen and Prevention of Skin Aging: A Randomized Trial. <em>Annals of Internal Medicine</em>, 158(11), 781–790. The Nambour study.</li>
+  <li>Flament, F., Bazin, R., Laquieze, S., Rubert, V., Simonpietri, E., &amp; Piot, B. (2013). Effect of the sun on visible clinical signs of aging in Caucasian skin. <em>Clinical, Cosmetic and Investigational Dermatology</em>, 6, 221–232.</li>
+  <li>Humphrey, S., et al. (2023). Imaging studies of long-persistent hyaluronic acid filler. <!-- TODO: confirm exact citation --></li>
+</ul>
+</section>
+
+<details class="glossary">
+<summary>Glossary — key terms used above</summary>
+<dl>
+  <dt>AGEs</dt>
+  <dd>Advanced glycation end-products. Sugar–protein adducts that cross-link collagen and elastin over decades. Driver of mechanism 3.</dd>
+
+  <dt>AP-1</dt>
+  <dd>Activator Protein 1. A transcription factor switched on by UV-induced stress; turns up the production of MMPs.</dd>
+
+  <dt>Fibroblast</dt>
+  <dd>The dermal cell that makes collagen, elastin, and the extracellular matrix that gives skin its structure.</dd>
+
+  <dt>HEV</dt>
+  <dd>High-energy visible light, sometimes called "blue light." Contributes to pigmentation in deeper skin tones.</dd>
+
+  <dt>IRA</dt>
+  <dd>Infrared-A radiation. Penetrates deeper than UV, contributes to photoaging through partly distinct mechanisms.</dd>
+
+  <dt>MMP-1, MMP-3</dt>
+  <dd>Matrix metalloproteinases — collagen-degrading enzymes activated by AP-1 after UV exposure.</dd>
+
+  <dt>Photoaging</dt>
+  <dd>The portion of visible facial aging attributable to UV exposure rather than chronological time. Roughly 80% in fair skin.</dd>
+
+  <dt>PIH</dt>
+  <dd>Post-inflammatory hyperpigmentation. Pigment left after acne, eczema, or other inflammation resolves.</dd>
+
+  <dt>Retinoid</dt>
+  <dd>Vitamin A derivatives (tretinoin, adapalene, retinaldehyde, retinol) that down-regulate MMPs and stimulate collagen synthesis.</dd>
+
+  <dt>ROS</dt>
+  <dd>Reactive oxygen species. Unstable, damaging oxygen molecules generated by UV exposure and metabolic stress.</dd>
+
+  <dt>SASP</dt>
+  <dd>Senescence-associated secretory phenotype. The inflammatory cocktail secreted by senescent cells. Driver of mechanism 2.</dd>
+
+  <dt>Senolytic</dt>
+  <dd>A drug that selectively kills senescent cells. Active research area; nothing on a consumer shelf.</dd>
+
+  <dt>Tyrosinase</dt>
+  <dd>The rate-limiting enzyme in melanin synthesis. Target of most pigment-modulating actives.</dd>
+</dl>
+</details>
+
+<footer class="colophon">
+<p><em>The Field Guide</em> is a sincere analytical companion to <em>Resting Rich Face</em> — written by an outsider, for one specific reader, on the same questions from the other side. Mechanisms over marketing, evidence over vibes, the bar set at <em>possibly disappointing but true.</em></p>
+<p><!-- TODO: editorial signature once resolved --> &mdash; The editors, on the case for the rest of the year.</p>
+</footer>
+
+</div>
 
 </div>
 </body>
