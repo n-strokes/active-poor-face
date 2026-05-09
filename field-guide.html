@@ -33,8 +33,9 @@
     --accent-soft: #5e6e94;
     --accent-tint: #eef1f7;
     --warn: #8a4a3c;
+    --warn-tint: #f6efeb;
     --measure: 38rem;
-    --wide: 52rem;
+    --wide: 56rem;
   }
 
   * { box-sizing: border-box; }
@@ -64,12 +65,35 @@
     margin-right: auto;
   }
 
-  /* Header */
+  /* Reusable icon system. SVG symbols defined once at top of body. */
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .icon-no {
+    width: 0.95rem;
+    height: 0.95rem;
+    fill: none;
+    stroke: var(--warn);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    flex-shrink: 0;
+  }
+
+  /* Header — compressed */
 
   header {
     border-bottom: 1px solid var(--rule);
-    padding-bottom: 2.5rem;
-    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2.25rem;
   }
 
   .eyebrow {
@@ -77,31 +101,31 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
     font-weight: 600;
   }
 
   h1 {
-    font-size: clamp(2rem, 5.4vw, 3rem);
+    font-size: clamp(1.85rem, 4.8vw, 2.6rem);
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin: 0 0 1.25rem;
+    margin: 0 0 1rem;
     color: var(--ink);
   }
 
   .dek {
-    font-size: 1.1rem;
-    line-height: 1.55;
+    font-size: 1.05rem;
+    line-height: 1.5;
     color: var(--soft);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
     max-width: 32rem;
     font-weight: 400;
   }
 
   .byline {
     margin: 0;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--soft);
@@ -110,12 +134,12 @@
 
   .byline time { color: var(--accent); }
 
-  .byline-sep { color: var(--rule); margin: 0 0.5rem; }
+  .byline-sep { color: var(--rule); margin: 0 0.45rem; }
 
   /* Body */
 
   h2 {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.25;
     margin: 4rem 0 1.5rem;
@@ -127,7 +151,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     line-height: 1.3;
-    margin: 2.75rem 0 0.75rem;
+    margin: 2.75rem 0 0.5rem;
     color: var(--ink);
     letter-spacing: -0.005em;
     scroll-margin-top: 1rem;
@@ -153,8 +177,8 @@
   a:hover { text-decoration-thickness: 2px; }
 
   .lead {
-    font-size: 1.18rem;
-    line-height: 1.55;
+    font-size: 1.2rem;
+    line-height: 1.5;
     color: var(--ink);
     margin-bottom: 1.5rem;
     font-weight: 500;
@@ -206,20 +230,20 @@
   .group-label .tier-mark-3 { background: var(--soft); opacity: 0.5; }
   .group-label .tier-mark-adj {
     background: transparent;
-    border: 1px solid var(--accent);
+    border: 1px dashed var(--accent);
     width: 0.55rem;
     height: 0.55rem;
   }
 
   .group-label + h2 { margin-top: 0.75rem; }
 
-  /* The interactive key */
+  /* THE ANCHOR DIAGRAM — the marquee element */
 
-  .key {
-    margin: 2.75rem 0 4rem;
+  .anchor {
+    margin: 2rem 0 4rem;
   }
 
-  .key-eyebrow {
+  .anchor-eyebrow {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -228,181 +252,355 @@
     margin: 0 0 0.5rem;
   }
 
-  .key-title {
-    font-size: 1.6rem;
+  .anchor-title {
+    font-size: 1.55rem;
     font-weight: 700;
     line-height: 1.15;
-    margin: 0 0 1rem;
+    margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
   }
 
-  .key-help {
+  .anchor-help {
     font-size: 0.9rem;
     color: var(--soft);
-    margin: 0 0 1.75rem;
-    max-width: 36rem;
+    margin: 0 0 1.5rem;
+    max-width: 38rem;
+    line-height: 1.5;
   }
 
-  .key-help .legend {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    margin-left: 0.4rem;
-  }
-
-  .key-help .legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    white-space: nowrap;
-  }
-
-  .key-help .dot {
-    display: inline-block;
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-  }
-
-  .key-help .dot-1 { background: var(--accent); }
-  .key-help .dot-2 { background: var(--accent); opacity: 0.55; }
-  .key-help .dot-3 { background: var(--soft); opacity: 0.5; }
-
-  .key-grid {
+  .anchor-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
 
-  .key-row {
+  .anchor-row {
     display: grid;
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
 
-  .key-row[data-tier="1"] { grid-template-columns: repeat(2, 1fr); }
-  .key-row[data-tier="2"] { grid-template-columns: repeat(3, 1fr); }
-  .key-row[data-tier="3"] { grid-template-columns: repeat(4, 1fr); }
+  .anchor-row[data-tier="1"] { grid-template-columns: repeat(2, 1fr); }
+  .anchor-row[data-tier="2"] { grid-template-columns: repeat(3, 1fr); }
+  .anchor-row[data-tier="3"] { grid-template-columns: repeat(4, 1fr); }
 
-  .tile {
+  /* Mechanism cell */
+
+  .cell {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    padding: 1rem 1.05rem 1.05rem;
+    gap: 0.3rem;
+    padding: 0.95rem 1rem 0.95rem;
     border-radius: 4px;
     text-decoration: none;
     color: inherit;
     background: var(--card);
     border: 1px solid var(--rule);
-    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
-    min-height: 8rem;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    min-height: 9rem;
   }
 
-  .tile:hover {
+  .cell:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px -10px rgba(44, 62, 108, 0.4);
+    box-shadow: 0 8px 20px -12px rgba(44, 62, 108, 0.45);
     text-decoration: none;
   }
 
-  .tile-num {
-    font-size: 0.7rem;
+  .cell-num {
+    font-size: 0.68rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     font-weight: 700;
     color: var(--accent);
   }
 
-  .tile-label {
-    font-size: 1.02rem;
+  .cell-name {
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.2;
     color: var(--ink);
   }
 
-  .tile-academic {
-    font-size: 0.78rem;
+  .cell-academic {
+    font-size: 0.76rem;
     color: var(--soft);
     font-style: italic;
     line-height: 1.3;
   }
 
-  .tile-mirror {
-    font-size: 0.85rem;
+  .cell-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    min-height: 1.1rem;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+
+  .cell-icons .icon { width: 1em; height: 1em; }
+
+  .cell-icons .icons-empty {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .cell-mirror {
+    font-size: 0.83rem;
     color: var(--soft);
     line-height: 1.4;
     margin-top: auto;
+    padding-top: 0.4rem;
   }
 
-  /* Tier 1 — solid accent fill */
-  .tile-1 {
+  /* Tier 1 — solid accent fill, white icons */
+  .cell-1 {
     background: var(--accent);
     border-color: var(--accent);
     color: #fff;
   }
-  .tile-1 .tile-num { color: rgba(255, 255, 255, 0.7); }
-  .tile-1 .tile-label { color: #fff; }
-  .tile-1 .tile-academic { color: rgba(255, 255, 255, 0.75); }
-  .tile-1 .tile-mirror { color: rgba(255, 255, 255, 0.85); }
-  .tile-1:hover { box-shadow: 0 8px 22px -10px rgba(44, 62, 108, 0.6); }
+  .cell-1 .cell-num { color: rgba(255, 255, 255, 0.7); }
+  .cell-1 .cell-name { color: #fff; }
+  .cell-1 .cell-academic { color: rgba(255, 255, 255, 0.78); }
+  .cell-1 .cell-icons { color: #fff; }
+  .cell-1 .cell-mirror { color: rgba(255, 255, 255, 0.85); }
+  .cell-1:hover { box-shadow: 0 10px 24px -12px rgba(44, 62, 108, 0.6); }
 
-  /* Tier 2 — accent-tinted background */
-  .tile-2 {
+  /* Tier 2 — accent-tinted */
+  .cell-2 {
     background: var(--accent-tint);
     border-color: #d8dfee;
   }
-  .tile-2 .tile-num { color: var(--accent); }
+  .cell-2 .cell-num { color: var(--accent); }
+  .cell-2 .cell-icons { color: var(--accent); }
 
-  /* Tier 3 — muted card */
-  .tile-3 {
+  /* Tier 3 — muted */
+  .cell-3 {
     background: var(--card);
     border-color: var(--rule);
   }
-  .tile-3 .tile-num { color: var(--soft); }
-  .tile-3 .tile-label { color: var(--soft); font-weight: 600; }
-  .tile-3 .tile-academic { color: var(--soft); opacity: 0.8; }
-  .tile-3 .tile-mirror { color: var(--soft); opacity: 0.85; }
+  .cell-3 .cell-num { color: var(--soft); }
+  .cell-3 .cell-name { color: var(--soft); font-weight: 600; }
+  .cell-3 .cell-academic { color: var(--soft); opacity: 0.8; }
+  .cell-3 .cell-mirror { color: var(--soft); opacity: 0.85; }
+  .cell-3 .cell-icons { color: var(--soft); }
 
-  @media (max-width: 720px) {
-    .key-row[data-tier="1"],
-    .key-row[data-tier="2"],
-    .key-row[data-tier="3"] {
+  /* Adjacent strip — outside the framework */
+
+  .anchor-adjacent {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--rule);
+  }
+
+  .adjacent-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+    margin: 0 0 0.65rem;
+  }
+
+  .adjacent-row {
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .cell-adj {
+    background: var(--card);
+    border: 1px dashed #c7cdd8;
+    border-radius: 4px;
+    padding: 0.75rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    min-height: 6.5rem;
+    transition: transform 120ms ease, border-color 120ms ease;
+  }
+
+  .cell-adj:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  .cell-adj .cell-name { font-size: 0.92rem; }
+  .cell-adj .cell-icons { font-size: 0.95rem; margin-top: auto; }
+
+  /* Legend */
+
+  .anchor-legend {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .legend-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--soft);
+  }
+
+  .legend-block .legend-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+    margin-right: 0.35rem;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .legend-item .icon {
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--accent);
+  }
+
+  .legend-item .dot {
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+  }
+
+  .legend-item .dot-1 { background: var(--accent); }
+  .legend-item .dot-2 { background: var(--accent); opacity: 0.55; }
+  .legend-item .dot-3 { background: var(--soft); opacity: 0.5; }
+  .legend-item .dot-adj {
+    background: transparent;
+    border: 1px dashed var(--accent);
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  /* Responsive anchor */
+
+  @media (max-width: 760px) {
+    .anchor-row[data-tier="1"],
+    .anchor-row[data-tier="2"],
+    .anchor-row[data-tier="3"] {
       grid-template-columns: repeat(2, 1fr);
     }
-    .tile { min-height: 7rem; padding: 0.85rem 0.9rem 0.95rem; }
-    .tile-label { font-size: 0.95rem; }
-    .tile-mirror { font-size: 0.78rem; }
+    .adjacent-row { grid-template-columns: repeat(2, 1fr); }
+    .cell { min-height: 8rem; padding: 0.85rem 0.85rem; }
+    .cell-name { font-size: 0.94rem; }
+    .cell-mirror { font-size: 0.78rem; }
   }
 
   @media (max-width: 420px) {
-    .key-row[data-tier="1"] { grid-template-columns: 1fr; }
+    .anchor-row[data-tier="1"] { grid-template-columns: 1fr; }
+    .anchor-title { font-size: 1.3rem; }
   }
 
-  /* "What doesn't" callout */
+  /* Per-mechanism leverage strip */
+
+  .leverage-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.75rem;
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.55rem 0.85rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    font-size: 0.82rem;
+  }
+
+  .leverage-strip[data-tier="2"] { border-left-color: var(--accent-soft); }
+  .leverage-strip[data-tier="3"] { border-left-color: var(--soft); background: var(--card); }
+  .leverage-strip[data-tier="adj"] { border-left-style: dashed; }
+
+  .leverage-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  .leverage-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  .leverage-strip[data-tier="3"] .leverage-icons { color: var(--soft); }
+
+  .leverage-empty {
+    font-size: 0.78rem;
+    color: var(--soft);
+    font-style: italic;
+  }
+
+  /* "What doesn't" callout — restyled to feel like a different voice */
 
   .what-doesnt {
-    background: var(--card);
-    border-left: 2px solid var(--accent);
-    padding: 1rem 1.25rem 0.5rem;
+    background: var(--warn-tint);
+    border: 1px solid #e8d8d0;
+    border-radius: 3px;
+    padding: 0.95rem 1.15rem 0.65rem 2.85rem;
     margin: 1.25rem 0 1.5rem;
     font-size: 0.95rem;
-    color: var(--soft);
-    border-radius: 2px;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .what-doesnt::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1.05rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border: 1.6px solid var(--warn);
+    border-radius: 50%;
+    background:
+      linear-gradient(45deg, transparent calc(50% - 1px), var(--warn) calc(50% - 1px), var(--warn) calc(50% + 1px), transparent calc(50% + 1px));
   }
 
   .what-doesnt strong {
     font-weight: 700;
-    color: var(--accent);
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
+    color: var(--warn);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.4rem;
   }
 
-  /* "What RRF says" callout — the editorial scoring */
+  .what-doesnt p { color: var(--ink); }
+  .what-doesnt p:last-child { margin-bottom: 0.6rem; }
+
+  /* "What RRF says" callout — editorial scoring */
 
   .rrf-says {
-    margin: 1.5rem 0 1.5rem;
-    padding: 0.95rem 1.25rem 1rem;
+    margin: 1.25rem 0 1.5rem;
+    padding: 0.85rem 1.15rem 0.95rem;
     background: transparent;
     border-top: 1px solid var(--ink);
     border-bottom: 1px solid var(--rule);
@@ -441,7 +639,7 @@
   .rrf-says .verdict.silent { color: var(--soft); }
   .rrf-says .verdict.warn { color: var(--warn); }
 
-  /* Concrete-moment paragraph — the welded-to-the-world line */
+  /* Concrete-moment paragraph */
 
   .concrete {
     font-size: 0.98rem;
@@ -452,7 +650,7 @@
     margin: 1.25rem 0 1.5rem;
   }
 
-  /* Synthesis section */
+  /* Synthesis */
 
   .synthesis {
     margin-top: 5rem;
@@ -483,7 +681,6 @@
     padding: 2rem 1.5rem;
     background: var(--accent-tint);
     border-radius: 3px;
-    text-align: left;
   }
 
   .cta-eyebrow {
@@ -503,7 +700,7 @@
 
   .cta p { margin: 0; color: var(--soft); }
 
-  /* Source note + bibliography + glossary */
+  /* Source note + bibliography + glossary + colophon */
 
   .source-note {
     margin-top: 5rem;
@@ -620,15 +817,12 @@
     .glossary dd { margin-bottom: 0.7rem; }
   }
 
-  /* Editorial footer */
-
   .colophon {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--rule);
     font-size: 0.85rem;
     color: var(--soft);
-    text-align: left;
   }
 
   .colophon p { margin: 0 0 0.5rem; }
@@ -638,15 +832,124 @@
   /* Mobile body padding */
 
   @media (max-width: 600px) {
-    .page { padding: 2.5rem 1.25rem 4rem; }
+    .page { padding: 2.25rem 1.1rem 4rem; }
     .lead { font-size: 1.08rem; }
     h2 { font-size: 1.3rem; margin-top: 3rem; }
-    .key-title { font-size: 1.35rem; }
+    .anchor-title { font-size: 1.3rem; }
     .cta { padding: 1.5rem 1.25rem; }
   }
 </style>
 </head>
 <body>
+
+<!-- ========= ICON VOCABULARY ========= -->
+<!-- Hand-drawn monoline pictograms. Used inline via <use href="#icon-…"/>. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="icon-spf" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3.6"/>
+    <line x1="12" y1="2.5" x2="12" y2="5"/>
+    <line x1="12" y1="19" x2="12" y2="21.5"/>
+    <line x1="2.5" y1="12" x2="5" y2="12"/>
+    <line x1="19" y1="12" x2="21.5" y2="12"/>
+    <line x1="5.2" y1="5.2" x2="7" y2="7"/>
+    <line x1="17" y1="17" x2="18.8" y2="18.8"/>
+    <line x1="5.2" y1="18.8" x2="7" y2="17"/>
+    <line x1="17" y1="7" x2="18.8" y2="5.2"/>
+  </symbol>
+
+  <symbol id="icon-retinoid" viewBox="0 0 24 24">
+    <rect x="3.5" y="9" width="17" height="6" rx="3"/>
+    <line x1="12" y1="9" x2="12" y2="15"/>
+  </symbol>
+
+  <symbol id="icon-antioxidant" viewBox="0 0 24 24">
+    <path d="M12 3 C 8.5 8, 6.5 11, 6.5 14.5 a5.5 5.5 0 0 0 11 0 C 17.5 11, 15.5 8, 12 3 z"/>
+    <path d="M9 14 a3 3 0 0 0 3 3"/>
+  </symbol>
+
+  <symbol id="icon-microneedle" viewBox="0 0 24 24">
+    <circle cx="7" cy="7" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="7" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="7" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="17" cy="12" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="7" cy="17" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/>
+    <circle cx="17" cy="17" r="1.1" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="icon-filler" viewBox="0 0 24 24">
+    <line x1="2.5" y1="12" x2="6" y2="12"/>
+    <rect x="6" y="9.5" width="11" height="5"/>
+    <line x1="10" y1="9.5" x2="10" y2="14.5"/>
+    <line x1="13.5" y1="9.5" x2="13.5" y2="14.5"/>
+    <line x1="17" y1="12" x2="20.5" y2="12"/>
+    <line x1="20.5" y1="9.5" x2="20.5" y2="14.5"/>
+  </symbol>
+
+  <symbol id="icon-botox" viewBox="0 0 24 24">
+    <rect x="9" y="3" width="6" height="2.2"/>
+    <line x1="9" y1="5.2" x2="9" y2="7"/>
+    <line x1="15" y1="5.2" x2="15" y2="7"/>
+    <rect x="6.5" y="7" width="11" height="14" rx="1.4"/>
+    <line x1="6.5" y1="11" x2="17.5" y2="11"/>
+  </symbol>
+
+  <symbol id="icon-energy" viewBox="0 0 24 24">
+    <path d="M3 13 q2.4 -5 4.8 0 t4.8 0 t4.8 0 t4.8 0"/>
+  </symbol>
+
+  <symbol id="icon-pigment" viewBox="0 0 24 24">
+    <path d="M7 14 q-1 -5 4 -7 q6 -1 7 5 q0 5 -5 6 q-6 0 -6 -4 z"/>
+    <line x1="18.5" y1="5" x2="18.5" y2="7.5"/>
+    <line x1="17.25" y1="6.25" x2="19.75" y2="6.25"/>
+  </symbol>
+
+  <symbol id="icon-barrier" viewBox="0 0 24 24">
+    <rect x="4.5" y="6" width="15" height="3" rx="0.6"/>
+    <path d="M5.5 9 L6.6 19.2 a1 1 0 0 0 1 0.8 h8.8 a1 1 0 0 0 1 -0.8 L18.5 9"/>
+  </symbol>
+
+  <symbol id="icon-sleep" viewBox="0 0 24 24">
+    <path d="M19.5 14.5 a8 8 0 1 1 -10 -10 a6 6 0 0 0 10 10 z"/>
+  </symbol>
+
+  <symbol id="icon-diet" viewBox="0 0 24 24">
+    <path d="M12 7.5 c -3.5 -1.5 -7.5 0.8 -7.5 6 c 0 6 4.2 8 7.5 8 c 3.3 0 7.5 -2 7.5 -8 c 0 -5.2 -4 -7.5 -7.5 -6 z"/>
+    <path d="M12 7.5 v -3"/>
+    <path d="M14.5 4 q -2.5 0.2 -2.5 3.5"/>
+  </symbol>
+
+  <symbol id="icon-no-smoke" viewBox="0 0 24 24">
+    <rect x="3" y="11" width="13" height="3"/>
+    <line x1="11" y1="11" x2="11" y2="14"/>
+    <path d="M18.5 11 q1.2 -2 0 -3.5 M21 11 q1.2 -2 0 -3.5"/>
+    <line x1="3.5" y1="20" x2="20.5" y2="4.5" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="icon-alcohol" viewBox="0 0 24 24">
+    <path d="M8 4 h8 l -1 6.5 a3 3 0 0 1 -6 0 z"/>
+    <line x1="12" y1="13.5" x2="12" y2="20"/>
+    <line x1="9" y1="20" x2="15" y2="20"/>
+    <line x1="3.5" y1="20" x2="20.5" y2="4" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="icon-exercise" viewBox="0 0 24 24">
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <rect x="2.5" y="9" width="2" height="6"/>
+    <rect x="5.5" y="7" width="2" height="10"/>
+    <rect x="16.5" y="7" width="2" height="10"/>
+    <rect x="19.5" y="9" width="2" height="6"/>
+  </symbol>
+
+  <symbol id="icon-no" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <line x1="6" y1="6" x2="18" y2="18"/>
+  </symbol>
+</svg>
+
 <div class="page">
 
 <header>
@@ -654,104 +957,236 @@
   <h1>What's actually happening to your skin</h1>
   <p class="dek">A working map of the nine cellular mechanisms of skin aging — sorted by which ones you can do something about, which ones you can influence at the margins, and which ones no product or procedure currently reaches.</p>
   <p class="byline">
-    <!-- TODO: editorial signature / byline once resolved -->
+    <!-- TODO: editorial signature once resolved -->
     Working draft <span class="byline-sep">·</span> Updated <time datetime="2026-05-09">May 9, 2026</time>
   </p>
 </header>
 
 <main>
 
+<!-- One-line lead before the map. The reader should see the anchor first. -->
+
 <div class="prose">
 <p class="lead">Most skincare writing tells you what to buy. This tells you what's happening underneath, so you can decide for yourself.</p>
-
-<p>The framework here comes from a 2023 review in <em>Aging and Disease</em>, "Hallmarks of Skin Aging," which adapts the foundational 2013 paper by López-Otín and colleagues, <em>The Hallmarks of Aging</em>, in <em>Cell</em>. Together they organize everything that happens to a face over decades into nine specific cellular mechanisms. Both are open-access; see the bibliography below. <!-- TODO: verify and link DOIs --></p>
-
-<p>A face does not age in nine equal ways. <strong>Two of the nine do most of the visible work. Three more matter clearly. Four are real, but for a person standing at a Sephora counter in 2026, mostly out of reach.</strong> Sorting them honestly is most of the value of this map. Almost everything you can buy — and most of what you can read — sits somewhere in the gap between mechanisms that matter and mechanisms that products can credibly address.</p>
-
-<p>One thing the original nine miss: they are <em>cellular</em>-aging mechanisms. They don't directly cover what most people are reacting to in a mirror — pigmentation, structural change, hormonal shifts at perimenopause, the barrier, the small visible vessels in the cheeks. Those get their own section at the end, marked clearly as adjacent rather than inside the original framework.</p>
 </div>
 
-<!-- The marquee element: the interactive key -->
+<!-- ========= THE ANCHOR DIAGRAM ========= -->
 
-<section class="key" aria-label="The map of nine mechanisms">
-  <p class="key-eyebrow">The map</p>
-  <h2 class="key-title">All nine, at a glance</h2>
-  <p class="key-help">
-    Color shows tier. Click any tile to read its section.
-    <span class="legend">
-      <span><span class="dot dot-1"></span> high leverage</span>
-      <span><span class="dot dot-2"></span> partly within reach</span>
-      <span><span class="dot dot-3"></span> out of reach</span>
-    </span>
-  </p>
+<section class="anchor" aria-label="Anchor map of the nine mechanisms">
+  <p class="anchor-eyebrow">The map</p>
+  <h2 class="anchor-title">Nine mechanisms, ranked by what you can do</h2>
+  <p class="anchor-help">Color shows tier. Icons inside each cell show which interventions actually reach it — the visual density of icons is the leverage. A nearly empty cell means no current product or procedure addresses that mechanism.</p>
 
-  <div class="key-grid">
-    <div class="key-row" data-tier="1">
-      <a class="tile tile-1" href="#m1">
-        <span class="tile-num">No. 1</span>
-        <span class="tile-label">Sun damage to DNA</span>
-        <span class="tile-academic">Genomic instability</span>
-        <span class="tile-mirror">Lines, mottled tone — roughly 80% of visible "aging."</span>
+  <div class="anchor-grid">
+
+    <!-- Tier 1 -->
+    <div class="anchor-row" data-tier="1">
+
+      <a class="cell cell-1" href="#m1">
+        <span class="cell-num">No. 1</span>
+        <span class="cell-name">Sun damage to DNA</span>
+        <span class="cell-academic">Genomic instability</span>
+        <div class="cell-icons" aria-label="Interventions: SPF, retinoid, antioxidant">
+          <svg class="icon"><use href="#icon-spf"/></svg>
+          <svg class="icon"><use href="#icon-retinoid"/></svg>
+          <svg class="icon"><use href="#icon-antioxidant"/></svg>
+        </div>
+        <span class="cell-mirror">~80% of visible "aging" in fair skin.</span>
       </a>
-      <a class="tile tile-1" href="#m2">
-        <span class="tile-num">No. 2</span>
-        <span class="tile-label">Cells that won't die</span>
-        <span class="tile-academic">Cellular senescence</span>
-        <span class="tile-mirror">Why aging accelerates after about forty.</span>
+
+      <a class="cell cell-1" href="#m2">
+        <span class="cell-num">No. 2</span>
+        <span class="cell-name">Cells that won't die</span>
+        <span class="cell-academic">Cellular senescence</span>
+        <div class="cell-icons" aria-label="Interventions: SPF, retinoid, sleep, exercise, no smoking, alcohol moderation">
+          <svg class="icon"><use href="#icon-spf"/></svg>
+          <svg class="icon"><use href="#icon-retinoid"/></svg>
+          <svg class="icon"><use href="#icon-sleep"/></svg>
+          <svg class="icon"><use href="#icon-exercise"/></svg>
+          <svg class="icon"><use href="#icon-no-smoke"/></svg>
+          <svg class="icon"><use href="#icon-alcohol"/></svg>
+        </div>
+        <span class="cell-mirror">Why aging accelerates after about forty.</span>
       </a>
+
     </div>
 
-    <div class="key-row" data-tier="2">
-      <a class="tile tile-2" href="#m3">
-        <span class="tile-num">No. 3</span>
-        <span class="tile-label">Sugar damage to collagen</span>
-        <span class="tile-academic">Loss of proteostasis · AGEs</span>
-        <span class="tile-mirror">Sallow, brittle, irreversible.</span>
+    <!-- Tier 2 -->
+    <div class="anchor-row" data-tier="2">
+
+      <a class="cell cell-2" href="#m3">
+        <span class="cell-num">No. 3</span>
+        <span class="cell-name">Sugar damage to collagen</span>
+        <span class="cell-academic">Loss of proteostasis · AGEs</span>
+        <div class="cell-icons" aria-label="Interventions: low-glycemic diet">
+          <svg class="icon"><use href="#icon-diet"/></svg>
+        </div>
+        <span class="cell-mirror">Sallow, brittle, irreversible.</span>
       </a>
-      <a class="tile tile-2" href="#m4">
-        <span class="tile-num">No. 4</span>
-        <span class="tile-label">Inflammaging</span>
-        <span class="tile-academic">Chronic inflammation</span>
-        <span class="tile-mirror">The slow background fire.</span>
+
+      <a class="cell cell-2" href="#m4">
+        <span class="cell-num">No. 4</span>
+        <span class="cell-name">Inflammaging</span>
+        <span class="cell-academic">Chronic inflammation</span>
+        <div class="cell-icons" aria-label="Interventions: sleep, no smoking, exercise, alcohol moderation, antioxidant">
+          <svg class="icon"><use href="#icon-sleep"/></svg>
+          <svg class="icon"><use href="#icon-no-smoke"/></svg>
+          <svg class="icon"><use href="#icon-exercise"/></svg>
+          <svg class="icon"><use href="#icon-alcohol"/></svg>
+          <svg class="icon"><use href="#icon-antioxidant"/></svg>
+        </div>
+        <span class="cell-mirror">The slow background fire.</span>
       </a>
-      <a class="tile tile-2" href="#m5">
-        <span class="tile-num">No. 5</span>
-        <span class="tile-label">Structural loss</span>
-        <span class="tile-academic">Bone, fat, ligament <em>(adjacent)</em></span>
-        <span class="tile-mirror">Deflation and sliding — the procedure layer.</span>
+
+      <a class="cell cell-2" href="#m5">
+        <span class="cell-num">No. 5</span>
+        <span class="cell-name">Structural loss</span>
+        <span class="cell-academic">Bone, fat, ligament <em>(adjacent)</em></span>
+        <div class="cell-icons" aria-label="Interventions: filler, botox, microneedle, energy device">
+          <svg class="icon"><use href="#icon-filler"/></svg>
+          <svg class="icon"><use href="#icon-botox"/></svg>
+          <svg class="icon"><use href="#icon-microneedle"/></svg>
+          <svg class="icon"><use href="#icon-energy"/></svg>
+        </div>
+        <span class="cell-mirror">Deflation and sliding — the procedure layer.</span>
       </a>
+
     </div>
 
-    <div class="key-row" data-tier="3">
-      <a class="tile tile-3" href="#m6">
-        <span class="tile-num">No. 6</span>
-        <span class="tile-label">Telomere attrition</span>
-        <span class="tile-academic">Telomere attrition</span>
-        <span class="tile-mirror">Heritable. No topical reaches it.</span>
+    <!-- Tier 3 — the empty ones, by design -->
+    <div class="anchor-row" data-tier="3">
+
+      <a class="cell cell-3" href="#m6">
+        <span class="cell-num">No. 6</span>
+        <span class="cell-name">Telomere attrition</span>
+        <span class="cell-academic">Telomere attrition</span>
+        <div class="cell-icons"><span class="icons-empty">No reach</span></div>
+        <span class="cell-mirror">Heritable. No topical.</span>
       </a>
-      <a class="tile tile-3" href="#m7">
-        <span class="tile-num">No. 7</span>
-        <span class="tile-label">Cellular drift</span>
-        <span class="tile-academic">Epigenetic alterations</span>
-        <span class="tile-mirror">Cells forget their job.</span>
+
+      <a class="cell cell-3" href="#m7">
+        <span class="cell-num">No. 7</span>
+        <span class="cell-name">Cellular drift</span>
+        <span class="cell-academic">Epigenetic alterations</span>
+        <div class="cell-icons"><span class="icons-empty">No reach</span></div>
+        <span class="cell-mirror">Cells forget their job.</span>
       </a>
-      <a class="tile tile-3" href="#m8">
-        <span class="tile-num">No. 8</span>
-        <span class="tile-label">Stem cell exhaustion</span>
-        <span class="tile-academic">Stem cell exhaustion</span>
-        <span class="tile-mirror">Slow healing, thin skin.</span>
+
+      <a class="cell cell-3" href="#m8">
+        <span class="cell-num">No. 8</span>
+        <span class="cell-name">Stem cell exhaustion</span>
+        <span class="cell-academic">Stem cell exhaustion</span>
+        <div class="cell-icons"><span class="icons-empty">No reach</span></div>
+        <span class="cell-mirror">Slow healing, thin skin.</span>
       </a>
-      <a class="tile tile-3" href="#m9">
-        <span class="tile-num">No. 9</span>
-        <span class="tile-label">Nutrient signaling</span>
-        <span class="tile-academic">Deregulated nutrient sensing</span>
-        <span class="tile-mirror">Systemic. Not a skincare problem.</span>
+
+      <a class="cell cell-3" href="#m9">
+        <span class="cell-num">No. 9</span>
+        <span class="cell-name">Nutrient signaling</span>
+        <span class="cell-academic">Deregulated nutrient sensing</span>
+        <div class="cell-icons" aria-label="Lifestyle only">
+          <svg class="icon"><use href="#icon-diet"/></svg>
+          <svg class="icon"><use href="#icon-exercise"/></svg>
+        </div>
+        <span class="cell-mirror">Systemic. Not really skincare.</span>
       </a>
+
+    </div>
+  </div>
+
+  <!-- Adjacent strip -->
+
+  <div class="anchor-adjacent">
+    <p class="adjacent-eyebrow">Outside the original framework, still visible in the mirror (adjacent)</p>
+    <div class="adjacent-row">
+
+      <a class="cell-adj" href="#adj-pigment">
+        <span class="cell-name">Pigmentation</span>
+        <div class="cell-icons">
+          <svg class="icon"><use href="#icon-spf"/></svg>
+          <svg class="icon"><use href="#icon-pigment"/></svg>
+        </div>
+      </a>
+
+      <a class="cell-adj" href="#adj-hormones">
+        <span class="cell-name">Hormonal aging</span>
+        <div class="cell-icons">
+          <svg class="icon"><use href="#icon-spf"/></svg>
+          <svg class="icon"><use href="#icon-retinoid"/></svg>
+          <svg class="icon"><use href="#icon-antioxidant"/></svg>
+        </div>
+      </a>
+
+      <a class="cell-adj" href="#adj-barrier">
+        <span class="cell-name">Barrier</span>
+        <div class="cell-icons">
+          <svg class="icon"><use href="#icon-barrier"/></svg>
+          <svg class="icon"><use href="#icon-antioxidant"/></svg>
+        </div>
+      </a>
+
+      <a class="cell-adj" href="#adj-vascular">
+        <span class="cell-name">Microvasculature</span>
+        <div class="cell-icons">
+          <svg class="icon"><use href="#icon-energy"/></svg>
+          <svg class="icon"><use href="#icon-pigment"/></svg>
+          <svg class="icon"><use href="#icon-antioxidant"/></svg>
+        </div>
+      </a>
+
+      <a class="cell-adj" href="#adj-environment">
+        <span class="cell-name">Environmental</span>
+        <div class="cell-icons">
+          <svg class="icon"><use href="#icon-spf"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Legend -->
+
+  <div class="anchor-legend">
+    <div class="legend-block">
+      <span class="legend-tag">Tier</span>
+      <span class="legend-item"><span class="dot dot-1"></span> most actionable</span>
+      <span class="legend-item"><span class="dot dot-2"></span> partly within reach</span>
+      <span class="legend-item"><span class="dot dot-3"></span> out of reach</span>
+      <span class="legend-item"><span class="dot dot-adj"></span> adjacent</span>
+    </div>
+    <div class="legend-block">
+      <span class="legend-tag">Interventions</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-spf"/></svg> SPF</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-retinoid"/></svg> Retinoid</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-antioxidant"/></svg> Antioxidant</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-pigment"/></svg> Pigment-modulator</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-barrier"/></svg> Barrier moisturizer</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-microneedle"/></svg> Microneedling</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-filler"/></svg> Filler</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-botox"/></svg> Botox</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-energy"/></svg> Energy device</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-sleep"/></svg> Sleep</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-diet"/></svg> Low-glycemic diet</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-exercise"/></svg> Exercise</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-no-smoke"/></svg> No smoking</span>
+      <span class="legend-item"><svg class="icon"><use href="#icon-alcohol"/></svg> Alcohol moderation</span>
     </div>
   </div>
 </section>
 
-<!-- TIER 1 -->
+<!-- The rest of the prose intro, after the map -->
+
+<div class="prose">
+
+<p>The framework here comes from a 2023 review in <em>Aging and Disease</em>, "Hallmarks of Skin Aging," which adapts the foundational 2013 paper by López-Otín and colleagues, <em>The Hallmarks of Aging</em>, in <em>Cell</em>. Together they organize everything that happens to a face over decades into nine specific cellular mechanisms. Both are open-access; see the <a href="#bibliography">bibliography below</a>. <!-- TODO: verify and link DOIs --></p>
+
+<p>A face does not age in nine equal ways. <strong>Two of the nine do most of the visible work. Three more matter clearly. Four are real, but for a person standing at a Sephora counter in 2026, mostly out of reach.</strong> Sorting them honestly is most of the value of this map. Almost everything you can buy — and most of what you can read — sits somewhere in the gap between mechanisms that matter and mechanisms that products can credibly address.</p>
+
+<p>One thing the original nine miss: they are <em>cellular</em>-aging mechanisms. They don't directly cover what most people are reacting to in a mirror — pigmentation, structural change, hormonal shifts at perimenopause, the barrier, the small visible vessels in the cheeks. Those get their own row on the map and their own section near the end, marked clearly as adjacent rather than inside the original framework.</p>
+
+</div>
+
+<!-- ========= TIER 1 ========= -->
 
 <div class="prose">
 
@@ -760,6 +1195,15 @@
 
 <article id="m1">
 <h3><span class="num">1.</span> Sun damage to DNA</h3>
+
+<div class="leverage-strip" data-tier="1">
+  <span class="leverage-label">Most actionable</span>
+  <span class="leverage-icons" aria-label="SPF, retinoid, antioxidant">
+    <svg class="icon"><use href="#icon-spf"/></svg>
+    <svg class="icon"><use href="#icon-retinoid"/></svg>
+    <svg class="icon"><use href="#icon-antioxidant"/></svg>
+  </span>
+</div>
 
 <p><em>Genomic instability,</em> in the paper. The mechanism, end to end, is short enough to keep in your head: ultraviolet light hits a skin cell. It breaks DNA directly (UVB) and floods the cell with reactive oxygen species (UVA, which passes through windows and reaches you on overcast days). The cell's stress sensors switch on a transcription factor called <strong>AP-1</strong>. AP-1 turns up the production of two enzymes — <strong>MMP-1</strong> (collagenase) and <strong>MMP-3</strong> — whose job is to chew up collagen. They do. The collagen scaffolding of your dermis fragments. Over years, that's lines, laxity, mottled tone, and skin cancer.</p>
 
@@ -788,6 +1232,18 @@
 <article id="m2">
 <h3><span class="num">2.</span> Cells that won't die</h3>
 
+<div class="leverage-strip" data-tier="1">
+  <span class="leverage-label">Most actionable · upstream</span>
+  <span class="leverage-icons" aria-label="SPF, retinoid, sleep, exercise, no smoking, alcohol moderation">
+    <svg class="icon"><use href="#icon-spf"/></svg>
+    <svg class="icon"><use href="#icon-retinoid"/></svg>
+    <svg class="icon"><use href="#icon-sleep"/></svg>
+    <svg class="icon"><use href="#icon-exercise"/></svg>
+    <svg class="icon"><use href="#icon-no-smoke"/></svg>
+    <svg class="icon"><use href="#icon-alcohol"/></svg>
+  </span>
+</div>
+
 <p><em>Cellular senescence,</em> in the paper. The biggest mechanism in modern aging research. As skin cells take damage — from UV, from oxidative stress, from time — some stop dividing. They don't die. They sit there secreting a cocktail of inflammatory signals called the <em>senescence-associated secretory phenotype</em>, or <strong>SASP</strong>, that damages neighboring cells and accelerates every other mechanism on this list. SASP is the reason aging compounds: a senescent cell isn't just a cell that quit working, it's a cell actively making things worse around it. It's also why a face begins to change visibly faster after about forty — the cells that quit decades ago are now loud.</p>
 
 <p>What actually intervenes:</p>
@@ -808,13 +1264,20 @@
 </div>
 </article>
 
-<!-- TIER 2 -->
+<!-- ========= TIER 2 ========= -->
 
 <p class="group-label"><span class="tier-mark tier-mark-2"></span>Tier 2 — The Three That Matter Clearly</p>
 <h2>Real, visible, and partly within reach</h2>
 
 <article id="m3">
 <h3><span class="num">3.</span> Sugar damage to collagen</h3>
+
+<div class="leverage-strip" data-tier="2">
+  <span class="leverage-label">Lifestyle only · decade horizon</span>
+  <span class="leverage-icons" aria-label="Low-glycemic diet">
+    <svg class="icon"><use href="#icon-diet"/></svg>
+  </span>
+</div>
 
 <p>Grouped under <em>loss of proteostasis</em> in the paper, but it deserves its own line because the mechanism is unusually clean and unusually neglected. Sugar molecules in your blood — glucose, fructose — bind to long-lived proteins like dermal collagen and form <strong>advanced glycation end-products</strong>, or AGEs. These cross-link collagen fibers, making them stiff, brittle, and yellow. The result, over decades: a sallower, less elastic, less responsive skin texture that no topical reverses.</p>
 
@@ -836,13 +1299,24 @@
 <article id="m4">
 <h3><span class="num">4.</span> Inflammaging</h3>
 
+<div class="leverage-strip" data-tier="2">
+  <span class="leverage-label">Lifestyle-led · modest topical</span>
+  <span class="leverage-icons" aria-label="Sleep, no smoking, exercise, alcohol moderation, antioxidant">
+    <svg class="icon"><use href="#icon-sleep"/></svg>
+    <svg class="icon"><use href="#icon-no-smoke"/></svg>
+    <svg class="icon"><use href="#icon-exercise"/></svg>
+    <svg class="icon"><use href="#icon-alcohol"/></svg>
+    <svg class="icon"><use href="#icon-antioxidant"/></svg>
+  </span>
+</div>
+
 <p>Chronic, low-grade inflammation throughout the body. The paper places this in the antagonistic-responses bucket — defenses that have stopped working properly. Senescent cells contribute, but so do sleep deprivation, chronic stress, alcohol, smoking, gut dysfunction, and visceral fat. The same MMPs UV activates are activated by general inflammation, so a tired, stressed face takes the same kind of collagen hit a sun-exposed face does — quieter, slower, but ongoing.</p>
 
 <p>What intervenes: sleep, exercise, alcohol moderation, smoking cessation. Smoking cessation in particular is the single most cost-effective skin intervention available — measurable improvement in tone within months. Topical niacinamide and azelaic acid have modest local anti-inflammatory effects and are cheap.</p>
 
 <aside class="rrf-says">
   <span class="rrf-says-tag">What RRF says</span>
-  <em><!-- TODO: score RRF coverage of inflammaging — sleep / alcohol / niacinamide framing --></em>
+  <span class="verdict silent">On inflammaging: partial.</span> The lifestyle inputs — sleep, alcohol, smoking — show up in pieces; the mechanism that ties them to visible aging (the same MMPs UV activates, switched on by chronic inflammation) doesn't get named. Closing that loop is the upgrade.
 </aside>
 
 <div class="what-doesnt">
@@ -853,6 +1327,16 @@
 
 <article id="m5">
 <h3><span class="num">5.</span> Structural and scaffolding loss <em>(adjacent)</em></h3>
+
+<div class="leverage-strip" data-tier="2">
+  <span class="leverage-label">Procedure layer</span>
+  <span class="leverage-icons" aria-label="Filler, Botox, microneedling, energy device">
+    <svg class="icon"><use href="#icon-filler"/></svg>
+    <svg class="icon"><use href="#icon-botox"/></svg>
+    <svg class="icon"><use href="#icon-microneedle"/></svg>
+    <svg class="icon"><use href="#icon-energy"/></svg>
+  </span>
+</div>
 
 <p>Not strictly one of the nine cellular hallmarks — this lives in the bone, the fat pads, the ligaments, the muscles, not in the cells of the skin itself. But it is what most people are reacting to when they say their face has "changed." The skull resorbs over decades. Fat pads atrophy and migrate downward. Expression muscles hypertrophy. Ligaments laxen. The face deflates and slides; the skin sitting on top of it follows.</p>
 
@@ -877,7 +1361,7 @@
 </div>
 </article>
 
-<!-- TIER 3 -->
+<!-- ========= TIER 3 ========= -->
 
 <p class="group-label"><span class="tier-mark tier-mark-3"></span>Tier 3 — The Four You Can't Really Touch</p>
 <h2>Real science, no consumer interventions yet</h2>
@@ -886,21 +1370,48 @@
 
 <article id="m6">
 <h3><span class="num">6.</span> Telomere attrition</h3>
+
+<div class="leverage-strip" data-tier="3">
+  <span class="leverage-label">No current consumer intervention</span>
+  <span class="leverage-empty">— mechanism is real, products that claim to reach it are not</span>
+</div>
+
 <p>Chromosome ends shorten with each cell division. Past a threshold, cells stop dividing. Heritable, mostly determined by genetics and overall systemic health. No topical or cosmetic procedure addresses telomere length.</p>
 </article>
 
 <article id="m7">
 <h3><span class="num">7.</span> Cellular drift</h3>
+
+<div class="leverage-strip" data-tier="3">
+  <span class="leverage-label">No current consumer intervention</span>
+  <span class="leverage-empty">— reprogramming research is years from clinical use</span>
+</div>
+
 <p><em>Epigenetic alterations,</em> in the paper. The chemical marks that tell each cell what kind of cell to be drift over time. Skin cells, in effect, "forget" what they're supposed to do. One of the hottest areas in aging research; cellular reprogramming therapies are years from clinical use and longer still from your bathroom shelf.</p>
 </article>
 
 <article id="m8">
 <h3><span class="num">8.</span> Stem cell exhaustion</h3>
+
+<div class="leverage-strip" data-tier="3">
+  <span class="leverage-label">No current consumer intervention</span>
+  <span class="leverage-empty">— "stem cell" labels do not transmit cell-renewal signals</span>
+</div>
+
 <p>The pool of basal-layer stem cells that replenish skin gradually depletes. Wound healing slows. Skin thins. There is no cream that meaningfully restores this pool, regardless of "stem cell" labeling. Plant stem cell extracts, despite popular marketing, do not transmit any cell-renewal signal to human skin.</p>
 </article>
 
 <article id="m9">
 <h3><span class="num">9.</span> Deregulated nutrient sensing</h3>
+
+<div class="leverage-strip" data-tier="3">
+  <span class="leverage-label">Systemic — lifestyle only</span>
+  <span class="leverage-icons" aria-label="Low-glycemic diet, exercise">
+    <svg class="icon"><use href="#icon-diet"/></svg>
+    <svg class="icon"><use href="#icon-exercise"/></svg>
+  </span>
+</div>
+
 <p>The mTOR, insulin, and AMPK pathways stop responding properly. This is what caloric restriction and rapamycin research are about. Real, but at the systemic level, and not a skincare problem in any direct sense.</p>
 </article>
 
@@ -909,7 +1420,7 @@
   <em>The luxury vocabulary the substack occasionally repeats — "cellular renewal," "stem-cell-derived," "longevity-coded" — is borrowed almost entirely from this tier, where no product can credibly act. The single most useful editorial move available is to tag the borrowing every time it appears.</em>
 </aside>
 
-<!-- ADJACENT -->
+<!-- ========= ADJACENT ========= -->
 
 <p class="group-label"><span class="tier-mark tier-mark-adj"></span>Adjacent — Outside the original nine</p>
 <h2>What the framework misses, but you see in a mirror</h2>
@@ -918,6 +1429,15 @@
 
 <article id="adj-pigment">
 <h3>Pigmentation</h3>
+
+<div class="leverage-strip" data-tier="adj">
+  <span class="leverage-label">Adjacent · primary concern for many readers</span>
+  <span class="leverage-icons" aria-label="SPF, pigment-modulator">
+    <svg class="icon"><use href="#icon-spf"/></svg>
+    <svg class="icon"><use href="#icon-pigment"/></svg>
+  </span>
+</div>
+
 <p>The original nine treat pigment as a downstream consequence of UV damage. It is — but for a large share of the audience, particularly the deeper-skin-tone reader the substack explicitly addresses, pigment is the <em>primary</em> concern, not a side effect. The pathway has its own vocabulary: <strong>tyrosinase</strong> as the rate-limiting enzyme, melanocyte hyperactivity, melanosome transfer, dermal pigment that has dropped past the basement membrane and become very hard to remove. Hyperpigmentation, melasma, post-inflammatory hyperpigmentation (PIH), and lentigines are different conditions with different best-evidence interventions.</p>
 
 <p>What intervenes (with the matching condition):</p>
@@ -937,6 +1457,16 @@
 
 <article id="adj-hormones">
 <h3>Hormonal aging</h3>
+
+<div class="leverage-strip" data-tier="adj">
+  <span class="leverage-label">Adjacent · perimenopausal window</span>
+  <span class="leverage-icons" aria-label="SPF, retinoid, antioxidant; HRT and topical estriol via clinician">
+    <svg class="icon"><use href="#icon-spf"/></svg>
+    <svg class="icon"><use href="#icon-retinoid"/></svg>
+    <svg class="icon"><use href="#icon-antioxidant"/></svg>
+  </span>
+</div>
+
 <p>Absent from the López-Otín framework, but the most predictable and dramatic skin event in the average woman's life. Estrogen withdrawal at perimenopause accelerates collagen loss roughly 30% in the first five years post-menopause. Sebum production drops; the skin gets drier and less elastic on a fast timeline that has nothing to do with sun exposure or sleep.</p>
 
 <p>What intervenes:</p>
@@ -954,6 +1484,15 @@
 
 <article id="adj-barrier">
 <h3>The barrier (and the microbiome)</h3>
+
+<div class="leverage-strip" data-tier="adj">
+  <span class="leverage-label">Adjacent · cheapest evidence-based wins</span>
+  <span class="leverage-icons" aria-label="Barrier moisturizer, antioxidant">
+    <svg class="icon"><use href="#icon-barrier"/></svg>
+    <svg class="icon"><use href="#icon-antioxidant"/></svg>
+  </span>
+</div>
+
 <p>The stratum corneum — the outermost dead-cell layer — is held together by a lipid mortar of ceramides, cholesterol, and free fatty acids. When that mortar thins, water leaves the skin (transepidermal water loss), irritants get in, the barrier gets reactive, and every active ingredient you apply works less well and stings more. This is not in the original nine, and it is where most of the cheap, evidence-based wins live.</p>
 
 <p>What intervenes:</p>
@@ -973,11 +1512,29 @@
 
 <article id="adj-vascular">
 <h3>Microvasculature</h3>
+
+<div class="leverage-strip" data-tier="adj">
+  <span class="leverage-label">Adjacent · its own intervention map</span>
+  <span class="leverage-icons" aria-label="Energy device, pigment-modulator (azelaic), antioxidant (niacinamide)">
+    <svg class="icon"><use href="#icon-energy"/></svg>
+    <svg class="icon"><use href="#icon-pigment"/></svg>
+    <svg class="icon"><use href="#icon-antioxidant"/></svg>
+  </span>
+</div>
+
 <p>Capillary fragility, telangiectasias (visible broken vessels), the diffuse redness of late-stage rosacea, and post-inflammatory erythema after acne — these are vascular changes, not collagen ones, and they don't fit cleanly into any of the nine. They have their own intervention map: vascular lasers (KTP, pulsed-dye), niacinamide, azelaic acid, and the prescription rosacea ladder.</p>
 </article>
 
 <article id="adj-environment">
 <h3>The environmental layer: pollution, IRA, blue light</h3>
+
+<div class="leverage-strip" data-tier="adj">
+  <span class="leverage-label">Adjacent · tinted mineral SPF covers most of it</span>
+  <span class="leverage-icons" aria-label="SPF (tinted, mineral)">
+    <svg class="icon"><use href="#icon-spf"/></svg>
+  </span>
+</div>
+
 <p>Three contributors to visible aging the original framework doesn't separate cleanly:</p>
 <ul>
   <li><strong>PM2.5</strong> — fine particulate pollution — has been correlated with lentigines and wrinkles in epidemiological studies. The mechanism is partly oxidative, partly inflammatory. SkinCeuticals' urban-pollution serum line points at a real signal even when the product itself is marginal.</li>
@@ -990,7 +1547,7 @@
 
 </div>
 
-<!-- SYNTHESIS -->
+<!-- ========= SYNTHESIS ========= -->
 
 <div class="prose">
 <section class="synthesis">
@@ -1051,7 +1608,7 @@
 
 </main>
 
-<!-- SOURCE NOTE / BIBLIOGRAPHY / GLOSSARY / COLOPHON -->
+<!-- ========= SOURCE / BIBLIO / GLOSSARY / COLOPHON ========= -->
 
 <div class="prose">
 
@@ -1059,7 +1616,7 @@
 <h2>Source note</h2>
 <p>The framework here is adapted from two papers. López-Otín, Blasco, Partridge, Serrano, and Kroemer, "The Hallmarks of Aging," <em>Cell</em>, 2013 — the foundational document for the entire field of aging biology. And the more recent skin-specific synthesis published in <em>Aging and Disease</em> in 2023 under the title "Hallmarks of Skin Aging." Both are openly available through PubMed Central.</p>
 
-<p>Where this map departs from the original: it groups the nine into three tiers by what a consumer can credibly act on, demotes mechanism 5 (structural) to "adjacent" because it sits in bone and fat rather than skin cells, and adds a separate adjacent section for pigmentation, hormones, the barrier, microvasculature, and environmental factors that the original framework doesn't cleanly cover. The academic names and original three-bucket categorization (primary causes / antagonistic responses / integrative phenotypes) are preserved on the upcoming reference page. <!-- TODO: link reference page once written --></p>
+<p>Where this map departs from the original: it groups the nine into three tiers by what a consumer can credibly act on, demotes mechanism 5 (structural) to "adjacent" because it sits in bone and fat rather than skin cells, and adds a separate adjacent row for pigmentation, hormones, the barrier, microvasculature, and environmental factors that the original framework doesn't cleanly cover. The academic names and original three-bucket categorization (primary causes / antagonistic responses / integrative phenotypes) are preserved on the upcoming reference page. <!-- TODO: link reference page once written --></p>
 
 <div class="verify">
   <strong>Working draft</strong>
@@ -1067,7 +1624,7 @@
 </div>
 </aside>
 
-<section class="biblio" aria-label="Bibliography">
+<section class="biblio" id="bibliography" aria-label="Bibliography">
 <h2>Bibliography</h2>
 <ul>
   <li>López-Otín, C., Blasco, M.A., Partridge, L., Serrano, M., &amp; Kroemer, G. (2013). The Hallmarks of Aging. <em>Cell</em>, 153(6), 1194–1217. <!-- TODO: link verified DOI --></li>

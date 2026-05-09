@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Longevity Roadmap, Audited — The Field Guide</title>
+<meta name="description" content="An audit of Beyond Beauty's 'The Longevity Roadmap' (Vol. 157) using the Hallmarks of Skin Aging framework — five products graded honestly against the science they claim.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Longevity Roadmap, Audited">
+<meta property="og:description" content="Five products from Beyond Beauty's longevity roundup, graded honestly against the science they claim.">
+<meta property="og:url" content="https://n-strokes.github.io/active-poor-face/audit-1.html">
+<meta property="og:image" content="https://n-strokes.github.io/active-poor-face/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="The Field Guide">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Longevity Roadmap, Audited">
+<meta name="twitter:description" content="Five products from Beyond Beauty's longevity roundup, graded honestly against the science they claim.">
+<meta name="twitter:image" content="https://n-strokes.github.io/active-poor-face/og-image.png">
+
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --ink: #232324;
+    --soft: #5e5e64;
+    --rule: #e2e2e6;
+    --card: #ffffff;
+    --accent: #2c3e6c;
+    --accent-soft: #5e6e94;
+    --accent-tint: #eef1f7;
+    --warn: #8a4a3c;
+    --warn-tint: #f6efeb;
+    --measure: 38rem;
+    --wide: 56rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Brandon Grotesque', system-ui, -apple-system, 'Avenir Next', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .prose {
+    max-width: var(--measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Header */
+
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: clamp(1.85rem, 4.8vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    color: var(--ink);
+  }
+
+  .dek {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--soft);
+    margin: 0 0 1.25rem;
+    max-width: 32rem;
+    font-weight: 400;
+  }
+
+  .byline {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  .byline time { color: var(--accent); }
+  .byline-sep { color: var(--rule); margin: 0 0.45rem; }
+
+  /* Body type */
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 4rem 0 1.5rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 2.75rem 0 0.5rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    scroll-margin-top: 1rem;
+  }
+
+  h3 .num {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  p { margin: 0 0 1.15rem; }
+
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ink); }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0 0 1.15rem;
+    padding-left: 1.25rem;
+    list-style: none;
+  }
+
+  ul li {
+    position: relative;
+    margin-bottom: 0.6rem;
+    padding-left: 0.5rem;
+  }
+
+  ul li::before {
+    content: "—";
+    position: absolute;
+    left: -1.1rem;
+    color: var(--accent);
+  }
+
+  /* Source-link block — the article being audited */
+
+  .source-link {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 1rem 1.15rem 1.05rem;
+    margin: 0 0 2rem;
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .source-link-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .source-link-title {
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .source-link-meta {
+    font-size: 0.85rem;
+    color: var(--soft);
+  }
+
+  /* Audit cards — one per product graded */
+
+  .audit-item {
+    margin-top: 3rem;
+    padding-top: 0.5rem;
+  }
+
+  .audit-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+    margin: 0.5rem 0 1.25rem;
+    padding: 0.6rem 0.95rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    font-size: 0.86rem;
+  }
+
+  .audit-strip[data-grade="proven"]      { border-left-color: var(--accent); }
+  .audit-strip[data-grade="immature"]    { border-left-color: var(--accent-soft); }
+  .audit-strip[data-grade="ahead"]       { border-left-color: var(--warn); border-left-style: solid; }
+  .audit-strip[data-grade="theater"]     { border-left-color: var(--warn); border-left-width: 4px; background: var(--warn-tint); }
+
+  .audit-grade-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  .audit-grade {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .audit-strip[data-grade="immature"] .audit-grade { color: var(--accent-soft); }
+  .audit-strip[data-grade="ahead"]    .audit-grade { color: var(--warn); }
+  .audit-strip[data-grade="theater"]  .audit-grade { color: var(--warn); }
+
+  .audit-meta {
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 0 0 0.85rem;
+  }
+
+  .audit-meta strong { color: var(--ink); font-weight: 700; }
+  .audit-meta a { color: var(--soft); text-decoration: underline; text-decoration-thickness: 1px; }
+
+  /* What doesn't / mechanism flag (re-used pattern) */
+
+  .what-doesnt {
+    background: var(--warn-tint);
+    border: 1px solid #e8d8d0;
+    border-radius: 3px;
+    padding: 0.95rem 1.15rem 0.65rem 2.85rem;
+    margin: 1.25rem 0 1.5rem;
+    font-size: 0.95rem;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .what-doesnt::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1.05rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border: 1.6px solid var(--warn);
+    border-radius: 50%;
+    background:
+      linear-gradient(45deg, transparent calc(50% - 1px), var(--warn) calc(50% - 1px), var(--warn) calc(50% + 1px), transparent calc(50% + 1px));
+  }
+
+  .what-doesnt strong {
+    font-weight: 700;
+    color: var(--warn);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .what-doesnt p { color: var(--ink); }
+  .what-doesnt p:last-child { margin-bottom: 0.6rem; }
+
+  /* Concrete-moment paragraph */
+
+  .concrete {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 2px solid var(--soft);
+    padding: 0.1rem 0 0.1rem 1rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  /* Tier dividers — borrowed pattern */
+
+  .group-label {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .group-label + h2 { margin-top: 0.75rem; }
+
+  /* Grade key — small legend at top */
+
+  .grade-key {
+    margin: 1.5rem 0 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--soft);
+  }
+
+  .grade-key-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  .grade-key-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+
+  .grade-key-item .swatch {
+    display: inline-block;
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 1px;
+  }
+
+  .grade-key-item .swatch.proven   { background: var(--accent); }
+  .grade-key-item .swatch.immature { background: var(--accent-soft); }
+  .grade-key-item .swatch.ahead    { background: var(--warn); opacity: 0.5; }
+  .grade-key-item .swatch.theater  { background: var(--warn); }
+
+  /* Synthesis / closing */
+
+  .synthesis {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .pull-quote {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--soft);
+    border-left: 2px solid var(--accent);
+    padding: 0.25rem 0 0.25rem 1.1rem;
+    margin: 1.5rem 0 1.5rem;
+  }
+
+  /* CTA */
+
+  .cta {
+    margin-top: 4rem;
+    padding: 2rem 1.5rem;
+    background: var(--accent-tint);
+    border-radius: 3px;
+  }
+
+  .cta-eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .cta h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .cta p { margin: 0; color: var(--ink); }
+
+  /* Bibliography / glossary / colophon */
+
+  .source-note {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+    color: var(--soft);
+  }
+
+  .source-note h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.85rem;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .source-note p { color: var(--soft); }
+
+  .verify {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1.05rem;
+    background: var(--warn-tint);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  .verify strong {
+    color: var(--warn);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+  }
+
+  .biblio {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--soft);
+  }
+
+  .biblio h2 {
+    font-size: 1rem;
+    margin: 0 0 1rem;
+    color: var(--soft);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .biblio ul { padding-left: 0; }
+  .biblio ul li { padding-left: 0; margin-bottom: 0.7rem; line-height: 1.5; }
+  .biblio ul li::before { content: ""; }
+
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--soft);
+  }
+
+  .colophon p { margin: 0 0 0.5rem; }
+
+  .colophon em { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .page { padding: 2.25rem 1.1rem 4rem; }
+    .lead { font-size: 1.08rem; }
+    h2 { font-size: 1.3rem; margin-top: 3rem; }
+    .cta { padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header>
+  <p class="eyebrow">The Field Guide · The Audit · No. 1</p>
+  <h1>The Longevity Roadmap, audited</h1>
+  <p class="dek">A trend-forecasting newsletter reports what brands say at In-Cosmetics Paris. The Field Guide grades what those brands have actually proven, against the framework the brands are now borrowing from.</p>
+  <p class="byline">
+    Working draft <span class="byline-sep">·</span> Updated <time datetime="2026-05-09">May 9, 2026</time>
+  </p>
+</header>
+
+<main>
+
+<div class="prose">
+
+<aside class="source-link" aria-label="Article being audited">
+  <span class="source-link-tag">The article in question</span>
+  <span class="source-link-title">"Vol. 157: The Longevity Roadmap"</span>
+  <span class="source-link-meta">By Monia, on <em>Beyond Beauty</em>. <a href="https://beyondbeauty.substack.com/p/vol-157-the-longevity-roadmap" target="_blank" rel="noopener">Read the original →</a></span>
+</aside>
+
+<p class="lead">Skincare's most useful framework, the Hallmarks of Skin Aging, has now reached the trade-show floor. Brands are borrowing its vocabulary faster than they're earning it. <em>Beyond Beauty</em>'s Vol. 157 is a clear-eyed field report on that movement and a credulous one — the closing paragraph correctly warns about brands "borrowing language without earning it" and then declines to apply that warning backward to the brands the body of the piece profiled. Below: the audit she didn't write.</p>
+
+<h2>The framework, briefly, and where the article slips</h2>
+
+<p>The article is right that the Hallmarks framework began with López-Otín and colleagues' 2013 paper in <em>Cell</em> ("The Hallmarks of Aging"), and that a 2023 update expanded the original nine to twelve. It is also right that this framework is now widely cited in the skincare-adjacent longevity industry. Two slippages, though, are worth catching before any product gets graded.</p>
+
+<p><strong>Longevity is not aging.</strong> The article uses the two terms interchangeably. They are not the same. The original literature is about aging — the things that go wrong with a body over time. <em>Longevity</em> is the rebrand the wellness industry put on top because <em>aging</em> sounds depressing and <em>longevity</em> sounds aspirational. Every time you see "longevity" applied to a topical product, you're being marketed to with a translated word. The science says aging.</p>
+
+<p><strong>Systemic is not skin.</strong> The López-Otín framework describes <em>whole-organism</em> aging mechanisms. The skin-specific adaptation — the 2023 <em>Aging and Disease</em> review, "Hallmarks of Skin Aging" — is what should be applied to topical products. The article largely conflates the two, applying the systemic framework directly to face creams. That's a category error that the industry leans into because it lets a moisturizer claim relevance to mitochondrial dysfunction or telomere biology that nothing topical actually reaches.</p>
+
+<p>With those out of the way, the products.</p>
+
+<div class="grade-key" aria-label="Grade key">
+  <span class="grade-key-label">Grade key</span>
+  <span class="grade-key-item"><span class="swatch proven"></span>Real biology, replicated product evidence</span>
+  <span class="grade-key-item"><span class="swatch immature"></span>Real biology, immature product evidence</span>
+  <span class="grade-key-item"><span class="swatch ahead"></span>Real biology, marketing far ahead of data</span>
+  <span class="grade-key-item"><span class="swatch theater"></span>Theater dressed in lab vocabulary</span>
+</div>
+
+</div>
+
+<!-- ========= THE FIVE PRODUCTS ========= -->
+
+<div class="prose">
+
+<h2>The five products, graded</h2>
+
+<!-- 1. NMN -->
+
+<article class="audit-item" id="nmn">
+  <h3><span class="num">No. 1</span>NMN supplements (Mirai Lab)</h3>
+  <p class="audit-meta"><strong>Claimed mechanism:</strong> raise NAD+ levels → support sirtuins, DNA repair, mitochondrial function. Maps to the original framework's <em>mitochondrial dysfunction</em> and <em>genomic instability</em>.</p>
+
+  <div class="audit-strip" data-grade="ahead">
+    <span class="audit-grade-label">Verdict</span>
+    <span class="audit-grade">Real biology, weak human evidence, marketing far ahead of data.</span>
+  </div>
+
+  <p>The mechanism is real. NAD+ does decline with age, and it does matter for sirtuin-driven repair pathways. The intervention claim is what's overstated. Oral NMN's bioavailability is contested — most ingested NMN is metabolized to nicotinamide before reaching tissues. The famous Sinclair lab mouse studies have not replicated cleanly to meaningful human endpoints. Human RCTs to date show modest changes in blood NAD+ levels, not in clinical outcomes that matter.</p>
+
+  <p>The regulatory story is also unsettled: in 2022, the FDA reclassified NMN out of the supplement category, citing it as a drug under investigation. The supplement industry sued. The product currently sold to you sits in that limbo.</p>
+
+  <div class="what-doesnt">
+    <strong>The marketing leap</strong>
+    <p>From "NAD+ matters in aging biology" to "this $80 monthly subscription will reach your skin's mitochondria and slow your aging clock" is several steps of evidence the field has not yet earned. Pay attention to it; don't pay <em>for</em> it as a skincare intervention yet.</p>
+  </div>
+</article>
+
+<!-- 2. OneSkin -->
+
+<article class="audit-item" id="oneskin">
+  <h3><span class="num">No. 2</span>OneSkin OS-01 peptide</h3>
+  <p class="audit-meta"><strong>Claimed mechanism:</strong> the OS-01 peptide reduces senescent skin cells. Maps directly to the framework's <em>cellular senescence</em>.</p>
+
+  <div class="audit-strip" data-grade="immature">
+    <span class="audit-grade-label">Verdict</span>
+    <span class="audit-grade">Legitimate science, immature evidence. The most defensible item on the list.</span>
+  </div>
+
+  <p>OneSkin is the most legitimate brand named in the article. They have published peer-reviewed work — including in <em>npj Aging</em> in 2023 — showing the OS-01 peptide reducing senescence markers in <em>ex vivo</em> human skin equivalents, and one human study (n≈22, company-funded) showing reduced epidermal senescence markers via biopsy. That's real but modest evidence: small sample, company-sponsored, surrogate endpoints (markers, not outcomes), no independent replication outside the company.</p>
+
+  <p>The leap from "reduced senescence markers in 22 people's biopsies" to "this serum clears zombie cells from your face" is the marketing leap. The science is the cleanest on the list; the consumer claim still outruns it.</p>
+
+  <div class="what-doesnt">
+    <strong>What's worth watching</strong>
+    <p>Independent replication, larger samples, and outcome endpoints (visible aging measures, not marker reductions) over the next two to three years will determine whether OneSkin becomes the first genuinely evidence-backed senescence-targeted topical, or another founder-funded promising-paper-and-then-quiet story. The cream is $130. Buy it for the science you find interesting; do not buy it as proven.</p>
+  </div>
+</article>
+
+<!-- 3. Parallel Health -->
+
+<article class="audit-item" id="parallel">
+  <h3><span class="num">No. 3</span>Parallel Health microbiome testing + custom serum</h3>
+  <p class="audit-meta"><strong>Claimed mechanism:</strong> personalized microbiome optimization across multiple aging hallmarks. Maps to nothing well-defined in the framework — and that's the problem.</p>
+
+  <div class="audit-strip" data-grade="theater">
+    <span class="audit-grade-label">Verdict</span>
+    <span class="audit-grade">Snake oil with a lab coat. The most theatrical item on the list.</span>
+  </div>
+
+  <p>This is the example dressed up to sound the most futuristic, and the one with the weakest underlying claim. Skin-microbiome testing as a basis for clinical action is not validated. The skin microbiome shifts day-to-day with washing, weather, products, and sweat; sampling at one moment and prescribing a custom serum based on the result is theater, not science. Major dermatology professional bodies do not currently recommend microbiome-personalized topical skincare.</p>
+
+  <p>The "gut-skin axis" is a real area of investigation for specific conditions — acne, atopic dermatitis. The consumer-skincare extension of "optimize your microbiome to slow multiple hallmarks at once" is a massive overreach. The personalization is what makes this expensive; the personalization is also what has no validated basis.</p>
+
+  <div class="what-doesnt">
+    <strong>The category to watch with skepticism</strong>
+    <p>"At-home test → custom serum" is a recurring business model in beauty (gut tests, hormone tests, DNA tests, microbiome tests). Almost none of them have the analytical or clinical validity required for the action they claim to inform. The look is medicalized; the medicine isn't.</p>
+  </div>
+</article>
+
+<!-- 4. Timeline Mitopure -->
+
+<article class="audit-item" id="mitopure">
+  <h3><span class="num">No. 4</span>Timeline Mitopure (urolithin A)</h3>
+  <p class="audit-meta"><strong>Claimed mechanism:</strong> urolithin A induces mitophagy, supporting mitochondrial function. Maps to <em>mitochondrial dysfunction</em>, with secondary claims toward senescence and inflammation.</p>
+
+  <div class="audit-strip" data-grade="immature">
+    <span class="audit-grade-label">Verdict</span>
+    <span class="audit-grade">Oral product is the most evidence-backed thing on this list. Topical extension is reach.</span>
+  </div>
+
+  <p>Urolithin A has the strongest published RCT evidence of any compound named in the article — but for the <em>oral</em> product. Andreux and colleagues (2019) and Liu and colleagues (2022, in <em>Cell Reports Medicine</em>) ran placebo-controlled trials at 500–1,000 mg/day showing improved muscle endurance and mitochondrial gene expression in older adults. Real, replicated, and modest in effect size — but actual outcomes, not just markers.</p>
+
+  <p>The skincare line is a different story. Applying urolithin A topically and claiming it reaches skin mitochondria at functional concentrations is a much weaker claim than oral supplementation, and the evidence for the topical product is not in the same category as the oral one. Brands routinely stretch a strong oral evidence base across product extensions; readers do not always notice when the citations underneath the topical are not actually about the topical.</p>
+
+  <div class="what-doesnt">
+    <strong>Watch the citation transfer</strong>
+    <p>When a topical product cites RCTs run on the oral version of the same compound, the citation is technically true and substantively misleading. A different molecule reaches a different tissue at a different dose. Topical mitochondrial claims should be evaluated against topical evidence, not transferred from the supplement aisle.</p>
+  </div>
+</article>
+
+<!-- 5. Augustinus Bader -->
+
+<article class="audit-item" id="bader">
+  <h3><span class="num">No. 5</span>Augustinus Bader, The Cream (TFC8)</h3>
+  <p class="audit-meta"><strong>Claimed mechanism:</strong> a proprietary "Trigger Factor Complex" supports skin stem cell signaling. Maps the brand wishes to make: <em>stem cell exhaustion</em>. Mapping the evidence supports: none, on this product.</p>
+
+  <div class="audit-strip" data-grade="theater">
+    <span class="audit-grade-label">Verdict</span>
+    <span class="audit-grade">Status symbol with a research-founder halo, and almost no published efficacy data on the actual cosmetic product.</span>
+  </div>
+
+  <p>This is the high-status item on the list and the one that deserves the most scrutiny. TFC8 is a proprietary "Trigger Factor Complex" that the brand has not published in the peer-reviewed literature. There are no independent randomized controlled trials of The Cream itself. The founder's actual published research is on burn-wound healing in mice and pediatric burn patients — legitimate, important work that has nothing to do with cosmetic anti-aging in healthy skin.</p>
+
+  <p>The marketing leap from "wound-healing peptide research in burn patients" to "$300 face cream that supports skin stem cells" is unbridged by published data. <em>Allure</em> and the <em>Financial Times</em> have both run skeptical pieces. Independent dermatologists with no commercial stake have flagged it. The brand's defense is that the formulation is a trade secret, which is its prerogative — but trade secrets and peer-reviewed efficacy claims are not the same product.</p>
+
+  <div class="concrete">This is exactly the pattern the closing paragraph of the article warns about: a brand "borrowing language without earning it." It is also the brand the article credits without applying that warning. The status of the product survives the silence.</div>
+</article>
+
+</div>
+
+<!-- ========= THE WEB OF IDEAS ========= -->
+
+<div class="prose">
+
+<p class="group-label">The web of ideas — speculative section</p>
+<h2>Three more flags</h2>
+
+<p>The article's "web of ideas" is framed as speculative trend-spotting. Three items in it deserve naming.</p>
+
+<h3>Qverse Biocalix and the multi-hallmark soup</h3>
+<p>The Biocalix postbiotic is described as targeting multiple hallmarks at once — inflammation, oxidative stress, cellular senescence — and incidentally neutralizing "age-related scent." This is the maximalist multi-hallmark claim that the article itself, in its closing paragraph, warns is meaningless. A single fermented postbiotic ingredient claiming to address three hallmarks plus body odor is the ingredient-marketing equivalent of a multivitamin claiming to cure four diseases. The "2-Nonenal" age-scent research is real (Shiseido published on it in 2001); products claiming to neutralize it are essentially fragrance plus odor-binding chemistry, not aging interventions.</p>
+
+<h3>"Supercentenarian-inspired" formulations</h3>
+<p>The article frames this trend as future. It is already here. Companies use phrases like "longevity hotspot–inspired" and "Okinawa-inspired" routinely. The actual research on supercentenarians (the New England Centenarian Study and similar cohorts) has identified specific HLA haplotypes and immune profiles associated with extreme longevity — none of which can be conferred by an ingredient. "Supercentenarian-inspired" is, by definition, a marketing claim with no biological mechanism that crosses over into a topical product.</p>
+
+<h3>"Longevity by algorithm" / Debut</h3>
+<p>AI-designed peptides are real R&amp;D. The leap to "this peptide, designed in silico, will activate a specific longevity pathway in your face" is unproven for any consumer skincare product currently on the market. A $20M Series A tells you about VC enthusiasm, not efficacy. AI-designed molecules will eventually deliver real interventions; the marketing is running ahead of the pipeline by several years.</p>
+
+</div>
+
+<!-- ========= THE SCI-FI VIGNETTE ========= -->
+
+<div class="prose">
+
+<p class="group-label">A note on the futurism</p>
+<h2>The Yamanaka problem in the Lucy vignette</h2>
+
+<p>The article closes with a vignette about a future user, "Lucy," whose face cream "reprograms a small percentage of her cells back to a younger state without triggering the cancer risk that plagued early trials. The technology won a Nobel five years ago." This is fun futurism, but one quiet claim is worth catching.</p>
+
+<p>The reference is to <strong>partial epigenetic reprogramming</strong> — the OSKM transcription factors developed by Shinya Yamanaka, which won the Nobel Prize in 2012, not "five years ago." It works in mice. The cancer-risk problem is a real, currently unsolved obstacle in human application. There is no approved consumer reprogramming product, no near-term path to one, and the regulatory bar is enormous. Presenting it as plausible 2030s consumer reality is the article's most consequential piece of futurism-rendered-as-fact.</p>
+
+<p>The 2030s vignette will probably read in 2035 the way 2015's "we'll all have CRISPR-edited microbiomes by 2025" reads now. Worth flagging because it sets the tone the rest of the trend-forecasting section borrows: <em>technology that has won a Nobel will reach your bathroom shelf at consumer prices on the timeline of the next launch cycle.</em> The first half is sometimes true. The second is reliably not.</p>
+
+</div>
+
+<!-- ========= EDITORIAL CLOSE ========= -->
+
+<div class="prose">
+
+<section class="synthesis">
+<h2>What this tells us about position</h2>
+
+<p>Three things, beyond the audit itself.</p>
+
+<p><strong>The Hallmarks framework is now industry vocabulary.</strong> By the time it shows up in In-Cosmetics Paris booth decks, you're not introducing it — you're auditing how it's being used. That's the stronger editorial position: not "the people who explain the framework," but "the people who grade the products that claim to address it."</p>
+
+<p><strong>Trend-forecasting newsletters report what brands say. They don't audit what brands prove.</strong> That isn't a failure of <em>Beyond Beauty</em> specifically — it's the structural shape of trend journalism. Forecasters need access to brands; access requires not torching them. The closing-paragraph skepticism is the standard tell: a writer performs the audit on the way out the door because she couldn't perform it inside the piece. The Field Guide's role is to do what the trend-forecaster's role doesn't permit.</p>
+
+<p><strong>Every product named is a candidate for review.</strong> Augustinus Bader, OneSkin OS-01, Timeline Mitopure (oral and topical separately), Parallel Health, Qverse Biocalix, Debut. Each one will rank somewhere between "real biology with immature evidence" and "theater dressed in lab vocabulary." That's the working backlog. Each will get its own page on this site, longer, with citations.</p>
+
+<p class="pull-quote">The hallmarks framework has given longevity science legitimacy and clarity. It has also given brands new language to borrow without earning it. Naming which is which is the work.</p>
+
+</section>
+
+<section class="cta">
+  <p class="cta-eyebrow">Adjacent reading</p>
+  <h3>The Field Guide No. 1 — what's actually happening to your skin</h3>
+  <p>The framework this audit applies, written out in full. Nine mechanisms, ranked by what you can credibly do about them. <a href="field-guide.html">Read it →</a></p>
+</section>
+
+</div>
+
+<!-- ========= SOURCE / BIBLIO / COLOPHON ========= -->
+
+<div class="prose">
+
+<aside class="source-note">
+<h2>Source note</h2>
+<p>This audit applies the framework set out in the Field Guide No. 1 to the products named in <em>Beyond Beauty</em>'s "Vol. 157: The Longevity Roadmap." Read the original article in full at the link above before deciding which side of any given grade you sit on.</p>
+<p>Specific evidence claims about each product (sample sizes, journal placement, regulatory status) have been drawn from secondary reading and brand-published materials. They are individually worth verifying before reposting any of these grades publicly.</p>
+<div class="verify">
+  <strong>Working draft</strong>
+  <p>Independent verification of the OS-01 trial design (sample size, blinding, endpoints), the urolithin A RCT details, the Augustinus Bader publication record, and the FDA NMN regulatory timeline is needed before this page leaves draft. The framework attribution is sound; the per-product evidence calls are best regarded as load-bearing hypotheses pending citation pass.</p>
+</div>
+</aside>
+
+<section class="biblio" id="bibliography" aria-label="Bibliography">
+<h2>Bibliography</h2>
+<ul>
+  <li>López-Otín, C., Blasco, M.A., Partridge, L., Serrano, M., &amp; Kroemer, G. (2013). The Hallmarks of Aging. <em>Cell</em>, 153(6), 1194–1217.</li>
+  <li>López-Otín, C., Blasco, M.A., Partridge, L., Serrano, M., &amp; Kroemer, G. (2023). Hallmarks of aging: An expanding universe. <em>Cell</em>, 186(2), 243–278. <em>(The 12-hallmark update.)</em></li>
+  <li>"Hallmarks of Skin Aging." <em>Aging and Disease</em>, 2023. <em>The skin-specific synthesis.</em></li>
+  <li>Andreux, P.A., et al. (2019). The mitophagy activator urolithin A is safe and induces a molecular signature of improved mitochondrial and cellular health in humans. <em>Nature Metabolism</em>, 1, 595–603.</li>
+  <li>Liu, S., et al. (2022). Effect of urolithin A supplementation on muscle endurance and mitochondrial health in older adults. <em>Cell Reports Medicine</em> / <em>JAMA Network Open</em>, 5(1). <!-- TODO: confirm exact placement --></li>
+  <li>Zhang, Y., et al. (2023). OS-01 peptide reduces senescence markers in human skin equivalents and ex vivo skin. <em>npj Aging</em>, 9. <!-- TODO: confirm authorship and DOI --></li>
+  <li>Sebastiani, P., et al. New England Centenarian Study — HLA haplotype findings. <!-- TODO: confirm citation --></li>
+  <li>Haze, S., et al. (2001). 2-Nonenal newly found in human body odor tends to increase with aging. <em>Journal of Investigative Dermatology</em>, 116(4), 520–524.</li>
+</ul>
+</section>
+
+<footer class="colophon">
+<p><em>The Field Guide</em> is a sincere analytical companion to <em>Resting Rich Face</em> — written by an outsider, for one specific reader, on the same questions from the other side. Mechanisms over marketing, evidence over vibes, the bar set at <em>possibly disappointing but true.</em></p>
+<p><!-- TODO: editorial signature once resolved --> &mdash; The editors, on the case for the rest of the year.</p>
+</footer>
+
+</div>
+
+</main>
+
+</div>
+</body>
+</html>
